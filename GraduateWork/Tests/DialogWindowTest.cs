@@ -24,8 +24,8 @@ namespace GraduateWork.Tests
         public void SuccesfullLoginAndAddProjectTest()
         {
 
-            UserSteps userSteps = new UserSteps(Driver);
-            ProjectPage projectPage = userSteps.SuccessAuthorization(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
+            // NavigationSteps navigationSteps = new NavigationSteps(Driver);
+            ProjectPage projectPage = _navigationSteps.SuccessAuthorization(Admin);
             projectPage.ClickAddProjectButton();
             
             Assert.That(projectPage.DialogWindowDisplayed);

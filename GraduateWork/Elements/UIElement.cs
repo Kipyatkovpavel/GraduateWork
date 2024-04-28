@@ -122,6 +122,17 @@ namespace GraduateWork.Elements
             return _webElement.FindElements(by);
         }
 
+        public List<UIElement> FindUIElements(By by)
+        {
+            var result = new List<UIElement>();
+            foreach (var webElement in FindElements(by))
+            {
+                result.Add(new UIElement(_webDriver, webElement));
+            }
+
+            return result;
+        }
+
         public string GetAttribute(string attributeName)
         {
             return _webElement.GetAttribute(attributeName);

@@ -26,6 +26,11 @@ namespace GraduateWork.Pages
 
         }
 
+        public LoginPage(IWebDriver driver, bool openByUrl) : base(driver)
+        {
+
+        }
+
         //Атомарные методы
         public IWebElement EmailInput => WaitsHelper.WaitForExists(EmailInputBy);
         public IWebElement ErrorLabel => WaitsHelper.WaitForExists(ErrorLabelBy);

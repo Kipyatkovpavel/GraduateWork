@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GraduateWork.Steps;
+using GraduateWork.Models;
 
 namespace GraduateWork.Tests
 {
@@ -18,8 +19,8 @@ namespace GraduateWork.Tests
         protected IWebDriver Driver { get; private set; }
         protected WaitsHelper WaitsHelper { get; private set; }
 
-
-        protected UserSteps UserSteps;
+        protected NavigationSteps _navigationSteps;
+        protected User Admin { get; set; }
 
         [SetUp]
         public void Setup()
@@ -27,9 +28,15 @@ namespace GraduateWork.Tests
             Driver = new Browser().Driver;
             WaitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
 
-            UserSteps = new UserSteps(Driver);
+            _navigationSteps = new NavigationSteps(Driver);
 
+            Admin = new User()
+            {
+                Username = Configurator.AppSettings.Username,
+                Password = Configurator.AppSettings.Password
+            };
             Driver.Navigate().GoToUrl(Configurator.AppSettings.URL);
+            
         }
 
         [TearDown]

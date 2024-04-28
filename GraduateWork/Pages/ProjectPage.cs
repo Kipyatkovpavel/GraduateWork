@@ -21,8 +21,11 @@ namespace GraduateWork.Pages
                 private static readonly By LoginInButtonBy = By.CssSelector("[type='submit']");*/
         private static readonly By AddProjectButtonBy = By.CssSelector("[data-target='home--index.addButton']");//Кнопка +Project
         private static readonly By DialogWindowBy = By.CssSelector("div.dialog__main__content__inner"); //всплывающее сообщение
-      
 
+
+        public ProjectPage(IWebDriver driver) : base(driver)
+        {
+        }
         public ProjectPage(IWebDriver driver, bool openPageByUrl = false) : base(driver, openPageByUrl)
         {
 
@@ -47,11 +50,11 @@ namespace GraduateWork.Pages
 
         // Атомарные Методы
 
-        public IWebElement DialogWindow => WaitsHelper.WaitForExists(DialogWindowBy);  //всплывающее окно
-        public IWebElement EmailInput => WaitsHelper.WaitForExists(EmailInputBy);
-        public IWebElement PswInput => WaitsHelper.WaitForExists(PswInputBy);
+        public UIElement DialogWindow => new(Driver,DialogWindowBy);  //всплывающее окно
+        public UIElement EmailInput => new(Driver, EmailInputBy);
+        public UIElement PswInput => new(Driver, PswInputBy);
         public Button LoginInButton => new(Driver, LoginInButtonBy);
-        public IWebElement PageTitle => WaitsHelper.WaitForExists(pageTitle);
+        public UIElement PageTitle => new(Driver, pageTitle);
         public Button AddProjectButton => new(Driver, AddProjectButtonBy);
 
         public void ClickAddProjectButton() => AddProjectButton.Click();

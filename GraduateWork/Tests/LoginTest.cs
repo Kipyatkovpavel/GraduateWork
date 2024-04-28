@@ -10,6 +10,8 @@ using GraduateWork.Steps;
 using GraduateWork.Tests;
 using Allure.NUnit.Attributes;
 using Allure.Net.Commons;
+using System.ComponentModel.DataAnnotations;
+using GraduateWork.Models;
 
 
 namespace GraduateWork.Tests
@@ -24,8 +26,8 @@ namespace GraduateWork.Tests
         public void SuccesfullLoginTest()
         {
 
-            UserSteps userSteps = new UserSteps(Driver);
-            LoginPage loginPage = userSteps.SuccessFulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
+           // NavigationSteps navigationSteps = new NavigationSteps(Driver);
+            LoginPage loginPage = _navigationSteps.SuccessFulLogin(Admin);
             Assert.That(loginPage.IsPageOpened);
 
         }
@@ -37,8 +39,12 @@ namespace GraduateWork.Tests
         {
             //Проверка
             Assert.That(
-                new UserSteps(Driver)
-                .IncorrectLogin("pykipyao@mts.ru", Configurator.AppSettings.Password)
+                _navigationSteps
+                .IncorrectLogin(new User
+                {
+                    Username = "pykipyao@mts.ru",
+                    Password = Configurator.AppSettings.Password
+                })
                 .ErrorLabel.Text.Trim(),
                 Is.EqualTo("These credentials do not match our records or the user account is not allowed to log in."));
         }
