@@ -32,12 +32,12 @@ namespace GraduateWork.Elements
                 _columns.Add(columnElement.Text.Trim());
             }
 
-            foreach (var rowElement in _uiElement.FindUIElements(By.XPath("//tr[@class!='header']")))
+            foreach (var rowElement in _uiElement.FindUIElements(By.XPath("//tr/following-sibling::tr[position() >= 1]")))
             {
                 _rows.Add(new TableRow(rowElement));
             }
         }
-
+        public bool Displayed => _uiElement.Displayed;
         /// <summary>
         /// 
         /// </summary>

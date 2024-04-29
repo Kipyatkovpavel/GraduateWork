@@ -15,7 +15,7 @@ using Allure.Net.Commons;
 namespace GraduateWork.Tests
 {
     [AllureEpic("Web Interface")]
-    [AllureFeature("Login feature")]
+    [AllureFeature("Dialog Window Test")]
     public class DialogWindowTest : BaseTest
     {
         [Test(Description = "Проверка на отображения диалогового окна (окна создания проекта)")]

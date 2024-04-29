@@ -32,6 +32,25 @@ namespace GraduateWork.Steps
             return Login<ProjectPage>(user);
         }
 
+        public ProjectPage SuccessCreateProject(Project project)
+        {
+            return CreateProject<ProjectPage>(project);
+        }
+
+        public T CreateProject<T>(Project project) where T : BasePage
+        {
+            ProjectPage = new ProjectPage(Driver);
+            ProjectPage.ProjectNameInput.SendKeys(project.ProjectName);
+            ProjectPage.ProjectSummaryInput.SendKeys(project.ProjectSummary);
+            ProjectPage.ClickDropDownDefaultAccess();
+            ProjectPage.ProjectDefaultAccessInput.SelectByIndex(project.ProjectDefaultAccess);
+            ProjectPage.ClickCloseWarningMess();
+
+            return (T)Activator.CreateInstance(typeof(T), Driver, false);
+
+
+        }
+
         public T Login<T>(User user) where T : BasePage
         {
             LoginPage = new LoginPage(Driver);

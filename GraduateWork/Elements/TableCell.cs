@@ -16,7 +16,7 @@ namespace GraduateWork.Elements
             _uiElement = uiElement;
         }
 
-        public UIElement GetLink() => _uiElement.FindUIElement(By.TagName("a"));
+        public UIElement GetLink() => _uiElement.FindUIElement(By.TagName("div"));
         public string Text => _uiElement.Text;
     }
 }

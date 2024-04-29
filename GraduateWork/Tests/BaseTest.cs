@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GraduateWork.Steps;
 using GraduateWork.Models;
+using GraduateWork.Pages;
 
 namespace GraduateWork.Tests
 {
@@ -21,6 +22,11 @@ namespace GraduateWork.Tests
 
         protected NavigationSteps _navigationSteps;
         protected User Admin { get; set; }
+
+
+        protected Project FirstProject { get; set; }
+
+        Random random = new Random();
 
         [SetUp]
         public void Setup()
@@ -35,9 +41,18 @@ namespace GraduateWork.Tests
                 Username = Configurator.AppSettings.Username,
                 Password = Configurator.AppSettings.Password
             };
+
             Driver.Navigate().GoToUrl(Configurator.AppSettings.URL);
-            
-        }
+
+            FirstProject = new Project()
+            {
+                ProjectName = "Test1",
+                ProjectSummary = "summary1",
+/*                ProjectName = Path.GetRandomFileName().Replace(".", "").Substring(0, 30),
+                ProjectSummary = Path.GetRandomFileName().Replace(".", "").Substring(0, 80),*/
+                ProjectDefaultAccess = 2
+            };
+    }
 
         [TearDown]
         public void TearDown()

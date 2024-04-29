@@ -41,7 +41,7 @@ namespace GraduateWork.Elements
         {
             get
             {
-                if (_webElement.Text.Equals(""))
+/*                if (_webElement.Text.Equals(""))
                 {
                     if (GetAttribute("value").Equals(""))
                     {
@@ -51,7 +51,7 @@ namespace GraduateWork.Elements
                     {
                         return GetAttribute("value");
                     }
-                }
+                }*/
                 return Text;
             }
         }
