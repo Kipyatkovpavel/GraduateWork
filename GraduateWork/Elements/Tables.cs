@@ -12,9 +12,9 @@ using System.Collections.ObjectModel;
 
 namespace GraduateWork.Elements
 {
-    public class Tables : IWebElement
+    public class Table : IWebElement
     {
-        private UIElement _uiElement;
+        private UIElement*//**//* _uiElement;
         private List<string> _columns;
         private List<TableRow> _rows;
         private IWebDriver _webDriver;
@@ -27,22 +27,22 @@ namespace GraduateWork.Elements
         /// </summary>
         /// <param name="webDriver"></param>
         /// <param name="by"></param>
-        public Tables(IWebDriver webDriver)
+        public Table(IWebDriver webDriver)
         {
             _webDriver = webDriver;
 
         }
-        public Tables(IWebDriver webDriver, By by) : this(webDriver)
+        public Table(IWebDriver webDriver, By by) : this(webDriver)
         {
             _uiElement = new UIElement(webDriver, by);
             _columns = new List<string>();
             _rows = new List<TableRow>();
 
             UIElement tableHeader = _uiElement.FindElements(By.ClassName("table__header"));
-            
+
             //foreach (var columnElement in tableHeader.FindUIElements(By.TagName("th")))
 
-                // foreach (var columnElement in _uiElement.FindUIElements(By.TagName("th")))
+            // foreach (var columnElement in _uiElement.FindUIElements(By.TagName("th")))
             foreach (var columnElement in tableHeader.FindUIElements(By.TagName("th")))
             {
                 _columns.Add(columnElement.Text.Trim());
@@ -57,17 +57,17 @@ namespace GraduateWork.Elements
         {
             get
             {
-                *//*                if (_webElement.Text.Equals(""))
-                                    {
-                                        if (GetAttribute("value").Equals(""))
-                                        {
-                                            return GetAttribute("innerText");
-                                        }
-                                        else
-                                        {
-                                            return GetAttribute("value");
-                                        }
-                                    }*//*
+*//*                if (_webElement.Text.Equals(""))
+                {
+                    if (GetAttribute("value").Equals(""))
+                    {
+                        return GetAttribute("innerText");
+                    }
+                    else
+                    {
+                        return GetAttribute("value");
+                    }
+                }*//*
                 return Text;
             }
         }
@@ -139,14 +139,19 @@ namespace GraduateWork.Elements
             return _waitsHelper.WaitChildElement(_uiElement, by);
         }
 
+        public IWebElement FindElement(By by)
+        {
+            return _waitsHelper.WaitChildElement(_uiElement, by);
+        }
+
         public UIElement FindUIElement(By by)
         {
-            return new UIElement(_webDriver, FindElements(by));
+            return new UIElement(_webDriver, FindElement(by));
         }
 
         public ReadOnlyCollection<IWebElement> FindElements(By by)
         {
-            return _uiElement.FindElements(by);
+            return _webElement.FindElements(by);
         }
 
         public List<UIElement> FindUIElements(By by)

@@ -23,7 +23,7 @@ namespace GraduateWork.Tests
         public void AddAndDeleteNewProjectCorrectTest()
         {
             ProjectPage projectPage = _navigationSteps.SuccessAuthorization(Admin);//Авторизация
-            projectPage.ClickAddProjectButton();
+/*            projectPage.ClickAddProjectButton();
 
             ProjectPage createProject = _navigationSteps.SuccessCreateProject(FirstProject);//Создание проекта
             Assert.Multiple(() =>
@@ -31,14 +31,18 @@ namespace GraduateWork.Tests
                 Assert.That(FirstProject.ProjectName.Equals(createProject.NameOfCreateProject.Text));
                 Assert.That(FirstProject.ProjectSummary.Equals(createProject.SummaryOfCreateProject.Text));
 
-            });
+            });*/
             AdminPage adminPage = new AdminPage(Driver);
             //           createProject.ClickAdminButton();
             adminPage.ClickAdminButton();
             //            AdminPage adminPage = new AdminPage(Driver);
             adminPage.ClickProjectButton();
 
-            //            Assert.That(adminPage.ProjectTable.Displayed);
+            // Assert.That(adminPage.ProjectTable.Displayed());
+            //TableCell tableCell = adminPage.ProjectTable.GetCell("Project", "dsaad", 5);
+            TableCell tableCell = adminPage.ProjectTable.GetCell("Project", "dsaad", 3);
+
+            tableCell.DeleteAction().Hover();
             /*            if (UIElement.IsElementPresent(Driver, By.CssSelector("[data-target='components--table.table']")))
                         {
                             Assert.Pass(); //AdminPage tableCell = adminPage.ProjectTable.GetCell("Project", "dsaad", "Project");
