@@ -23,10 +23,9 @@ namespace GraduateWork.Tests
         protected NavigationSteps _navigationSteps;
         protected User Admin { get; set; }
 
+        Random random = new Random();
 
         protected Project FirstProject { get; set; }
-
-        Random random = new Random();
 
         [SetUp]
         public void Setup()
@@ -46,13 +45,19 @@ namespace GraduateWork.Tests
 
             FirstProject = new Project()
             {
-                ProjectName = "Test1",
-                ProjectSummary = "summary1",
-/*                ProjectName = Path.GetRandomFileName().Replace(".", "").Substring(0, 30),
-                ProjectSummary = Path.GetRandomFileName().Replace(".", "").Substring(0, 80),*/
-                ProjectDefaultAccess = 2
+                /*                ProjectName = $"ExampleName{new Random().Next(1, 100000)}",
+                                ProjectSummary = $"ExampleSummary{new Random().Next(1, 100000)}",
+                                ProjectDefaultAccess = 3*/
+
+                ProjectName ="Project23",
+                ProjectSummary ="Project23",
+                //ProjectDefaultAccess = random.Next(0, 5)
+                ProjectDefaultAccess = 3
+
+
             };
-    }
+
+        }
 
         [TearDown]
         public void TearDown()

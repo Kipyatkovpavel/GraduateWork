@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GraduateWork.Elements
 {
-    public class TableCell //ячейка
+    public class TableCell 
     {
         private UIElement _uiElement;
 
@@ -16,7 +16,9 @@ namespace GraduateWork.Elements
             _uiElement = uiElement;
         }
 
-        public UIElement GetLink() => _uiElement.FindUIElement(By.TagName("div"));
+      public UIElement DeleteAction() => _uiElement.FindUIElement(By.TagName("div"));
+//       public UIElement DeleteAction() => _uiElement.FindUIElement(By.XPath("//div[@data-action='delete']"));
         public string Text => _uiElement.Text;
+        public bool Displayed() => _uiElement.Displayed;
     }
 }

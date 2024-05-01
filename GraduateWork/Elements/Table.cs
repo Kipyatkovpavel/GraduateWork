@@ -37,7 +37,7 @@ namespace GraduateWork.Elements
                 _rows.Add(new TableRow(rowElement));
             }
         }
-        public bool Displayed => _uiElement.Displayed;
+        public bool Displayed() => _uiElement.Displayed;
         /// <summary>
         /// 
         /// </summary>
@@ -47,13 +47,22 @@ namespace GraduateWork.Elements
         /// <returns></returns>
         public TableCell GetCell(string targetColumn, string uniqueValue, string columnName)
         {
-            return GetCell(targetColumn, uniqueValue, _columns.IndexOf(columnName));
+            TableRow tableRow = GetRow(targetColumn, uniqueValue);
+            return tableRow.GetCell(_columns.IndexOf(columnName));
         }
+
 
         public TableCell GetCell(string targetColumn, string uniqueValue, int columnIndex)
         {
             TableRow tableRow = GetRow(targetColumn, uniqueValue);
-            return tableRow.GetCell(columnIndex);
+            if (tableRow != null)
+            {
+                return tableRow.GetCell(columnIndex);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public TableRow GetRow(string targetColumn, string uniqueValue)

@@ -1,4 +1,5 @@
 ﻿using GraduateWork.Elements;
+using GraduateWork.Helpers;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using System;
@@ -12,10 +13,10 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace GraduateWork.Pages
 {
-    public class ProjectPage : BasePage
+    public class AdminPage : BasePage
     {
-        private static string END_POINT = "";
-
+        private static string END_POINT = "index.php?/admin";
+        //https://pavelkipyatkov.testmo.net/admin/projects
         // Описание элементов
         private static readonly By ProjectNameInputBy = By.CssSelector("[data-target='name']");
         private static readonly By ProjectSummaryInputBy = By.CssSelector("[data-target='note behavior--maxlength-counter.control']");
@@ -28,8 +29,9 @@ namespace GraduateWork.Pages
         private static readonly By ProjectDialogWindowBy = By.CssSelector("div.dialog__main__content__inner"); //всплывающее сообщение
         private static readonly By CreateProjectButtonBy = By.CssSelector("[data-target='submitButton']"); //Сама кнопка называется Add Project, что бы не было дубликтов
         private static readonly By NameOfCreateProjectBy = By.XPath("//div[@class='page-header__title']");
+        private static readonly By ProjectTableBy = By.CssSelector("[data-target='components--table.table']");
         private static readonly By ProjectButtonBy = By.XPath("//a[@href='https://pavelkipyatkov.testmo.net/admin/projects' and @data-content='Projects']");//Кнопка Project после создания проекта
-                                                                                                                                                            // private static readonly By NameOfCreateProjectBy = By.CssSelector(".page-header__title::text");
+        // private static readonly By NameOfCreateProjectBy = By.CssSelector(".page-header__title::text");
 
         //private static readonly By NameOfCreateProjectBy = By.XPath("//div[@class='page-header__title' and contains(text(), '')]");
 
@@ -40,10 +42,10 @@ namespace GraduateWork.Pages
         //private static readonly By SummaryOfCreateProjectBy = By.Id("summary-field");
 
 
-        public ProjectPage(IWebDriver driver) : base(driver)
+        public AdminPage(IWebDriver driver) : base(driver)
         {
         }
-        public ProjectPage(IWebDriver driver, bool openPageByUrl = false) : base(driver, openPageByUrl)
+        public AdminPage(IWebDriver driver, bool openPageByUrl = false) : base(driver, openPageByUrl)
         {
 
         }
@@ -71,7 +73,7 @@ namespace GraduateWork.Pages
         public UIElement EmailInput => new(Driver, EmailInputBy);
         public UIElement PswInput => new(Driver, PswInputBy);
         public Button LoginInButton => new(Driver, LoginInButtonBy);
-        public UIElement PageTitle => new(Driver, pageTitle);
+           public UIElement PageTitle => new(Driver, pageTitle);
         public Button AddProjectButton => new(Driver, AddProjectButtonBy);
         public Button AdminButton => new(Driver, AdminButtonBy);
         public Button ProjectButton => new(Driver, ProjectButtonBy);
@@ -86,10 +88,10 @@ namespace GraduateWork.Pages
         public IWebElement NameOfCreateProject => WaitsHelper.WaitForExists(NameOfCreateProjectBy);
         public IWebElement SummaryOfCreateProject => WaitsHelper.WaitForExists(SummaryOfCreateProjectBy);
 
-
         public DropDownMenu ProjectDefaultAccessInput => new(Driver, ProjectDefaultAccessInputBy);
 
-
+        public Table ProjectTable => new(Driver, ProjectTableBy);
+        
 
 
         public void ClickAddProjectButton() => AddProjectButton.Click();
@@ -99,6 +101,15 @@ namespace GraduateWork.Pages
 
         public void ClickDropDownDefaultAccess() => DropDownDefaultAccess.Click();
         public void ClickCreateProjectButton() => CreateProjectButton.Click();
+
+        public bool ProjectTableDisplayed()
+        {
+            return ProjectTable.Displayed();
+        }
+        public bool NameProjectDisplayed()
+        {
+            return ProjectDialogWindow.Displayed;
+        }
 
 
         public bool DialogWindowDisplayed()
@@ -120,6 +131,7 @@ namespace GraduateWork.Pages
         {
             return ProjectDialogWindow.Displayed;
         }
+
 
     }
 }

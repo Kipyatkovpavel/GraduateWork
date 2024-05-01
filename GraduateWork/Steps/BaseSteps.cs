@@ -15,5 +15,8 @@ namespace GraduateWork.Steps
 
         protected LoginPage? LoginPage { get; set; }
         protected ProjectPage? ProjectPage { get; set; }
+        protected AdminPage? AdminPage { get; set; }
+
+
     }
 }

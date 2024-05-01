@@ -38,6 +38,8 @@ namespace GraduateWork.Pages
         public Button LoginInButton => new(Driver, LoginInButtonBy);
         public IWebElement PageTitle => WaitsHelper.WaitForExists(pageTitle);
 
+
+
         //Complex Методы
 
         protected override string GetEndPoint()
