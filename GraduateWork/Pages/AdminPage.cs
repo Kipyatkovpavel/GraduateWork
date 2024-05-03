@@ -17,12 +17,11 @@ namespace GraduateWork.Pages
     public class AdminPage : BasePage
     {
         private static string END_POINT = "/admin/projects";
-        //https://pavelkipyatkov.testmo.net/admin/projects
+
         // Описание элементов
         private static readonly By ProjectNameInputBy = By.CssSelector("[data-target='name']");
         private static readonly By ProjectSummaryInputBy = By.CssSelector("[data-target='note behavior--maxlength-counter.control']");
         private static readonly By ProjectDefaultAccessInputBy = By.XPath("//div[@class='dropdown__items__row dropdown__items__row--item']");
-        //private static readonly By ProjectDefaultAccessInputBy = By.XPath("//div[@class='dropdown__items']");
         private static readonly By AddProjectButtonBy = By.CssSelector("[data-target='home--index.addButton']");//Кнопка +Project
         private static readonly By AdminButtonBy = By.XPath("//a[@data-content='Admin']");//Кнопка Admin
         private static readonly By DropDownDefaultAccessBy = By.ClassName("dropdown__container");//Выпадающее меню DefaultAccess
@@ -31,22 +30,13 @@ namespace GraduateWork.Pages
         private static readonly By CreateProjectButtonBy = By.CssSelector("[data-target='submitButton']"); //Сама кнопка называется Add Project, что бы не было дубликтов
         private static readonly By NameOfCreateProjectBy = By.XPath("//div[@class='page-header__title']");
         private static readonly By ProjectTableBy = By.CssSelector("[data-target='components--table.table']");
-
-
+        private static readonly By DeleteDialogWindowBy = By.CssSelector("[data-target='title']");
         private static readonly By ProjectButtonBy = By.XPath("//a[@href='https://pavelkipyatkov.testmo.net/admin/projects' and @data-content='Projects']");//Кнопка Project после создания проекта
-                                                                                                                                                            // private static readonly By NameOfCreateProjectBy = By.CssSelector(".page-header__title::text");
-                                                                                                                                                            //        private static readonly By DeleteBasketButtonBy = By.CssSelector("tr[data-name='Test_Delete'] td.table__field__action div[data-action='delete']");
-                                                                                                                                                            //private static readonly By NameOfCreateProjectBy = By.XPath("//div[@class='page-header__title' and contains(text(), '')]");
-
-        //private static readonly By NameOfCreateProjectBy = By.Id("name-field");
+        private static readonly By CheckboxDeleteBy = By.CssSelector("[data-target='confirmationLabel']");                                                                                                                                                            // private static readonly By NameOfCreateProjectBy = By.CssSelector(".page-header__title::text");
+        private static readonly By DeleteProjectButtonBy = By.CssSelector("[data-target='deleteButton']");                                                                                                                                                                                                                                                  //        private static readonly By DeleteBasketButtonBy = By.CssSelector("tr[data-name='Test_Delete'] td.table__field__action div[data-action='delete']");
         private static readonly By SummaryOfCreateProjectBy = By.XPath("//div[@class='split-about__note']");
-        //       private static readonly By SummaryOfCreateProjectBy = By.CssSelector(".split-about__note::text");
-        // private static readonly By SummaryOfCreateProjectBy = By.XPath("//div[@class='split-about__note' and contains(text(), '')]");
-        //private static readonly By SummaryOfCreateProjectBy = By.Id("summary-field");
+        private static readonly By DeleteIconBy = By.CssSelector("[class='fas fa-ban icon-deleted-entity']");
 
-        /*        private static readonly By DeleteDialogWindowBy = By.CssSelector("[data-target='title']");
-                private static readonly By CheckboxDeleteBy = By.CssSelector("[data-target='confirmationLabel']");
-                private static readonly By DeleteProjectBy = By.CssSelector("[data-target='deleteButton']");*/
 
         public AdminPage(IWebDriver driver) : base(driver)
         {
@@ -87,45 +77,35 @@ namespace GraduateWork.Pages
         public Button CreateProjectButton => new(Driver, CreateProjectButtonBy);
 
         public Button DropDownDefaultAccess => new(Driver, DropDownDefaultAccessBy);
-        // public Button CloseWarningMess => new(Driver, CloseWarningMessBy);
 
+        public CheckBox CheckboxDelete => new CheckBox(Driver, CheckboxDeleteBy);
 
+        public Button DeleteProjectButton => new Button(Driver, DeleteProjectButtonBy);
         public UIElement ProjectNameInput => new(Driver, ProjectNameInputBy);
         public UIElement ProjectSummaryInput => new(Driver, ProjectSummaryInputBy);
+        public UIElement DeleteIcon => new(Driver, DeleteIconBy);
         public IWebElement NameOfCreateProject => WaitsHelper.WaitForExists(NameOfCreateProjectBy);
         public IWebElement SummaryOfCreateProject => WaitsHelper.WaitForExists(SummaryOfCreateProjectBy);
 
-        /*        public Button DeleteBasketButton => new Button(Driver, DeleteBasketButtonBy);
-                public IWebElement DeleteDialogWindow => WaitsHelper.WaitForExists(DeleteDialogWindowBy);
-
-                public CheckBox CheckboxSet => new CheckBox(Driver, CheckboxDeleteBy);
-
-                public Button DeleteProject => new Button(Driver, DeleteProjectBy);*/
+        public UIElement DeleteDialogWindow => new(Driver, DeleteDialogWindowBy); 
+ 
         public DropDownMenu ProjectDefaultAccessInput => new(Driver, ProjectDefaultAccessInputBy);
 
         public Table ProjectTable => new(Driver, ProjectTableBy);
-        //public IWebElement ProjectTable => WaitsHelper.WaitForExists(ProjectTableBy);
-        //public UIElement ProjectTable => new(Driver, ProjectTableBy);
 
-
-        /*        public void ClickDeleteButton() => DeleteBasketButton.Click();
-
-                public void SetCheckbox(bool flag) => CheckboxSet.SetCheckbox();
-
-
-                public void ClickDeleteProject() => DeleteProject.Click();*/
         public void ClickAddProjectButton() => AddProjectButton.Click();
 
         public void ClickAdminButton() => AdminButton.Click();
+        public void CheckboxDeleteClick() => CheckboxDelete.Click();
+        public void DeleteProjectButtonClick() => DeleteProjectButton.Click();
+
         public void ClickProjectButton() => ProjectButton.Click();
+
+
 
         public void ClickDropDownDefaultAccess() => DropDownDefaultAccess.Click();
         public void ClickCreateProjectButton() => CreateProjectButton.Click();
 
-        /*        public bool ProjectTableDisplayed()
-                {
-                    return ProjectTable.Displayed;
-                }*/
         public bool NameProjectDisplayed()
         {
             return ProjectDialogWindow.Displayed;

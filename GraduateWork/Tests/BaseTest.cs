@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using GraduateWork.Steps;
 using GraduateWork.Models;
 using GraduateWork.Pages;
+using System.Reflection;
 
 namespace GraduateWork.Tests
 {
@@ -23,9 +24,14 @@ namespace GraduateWork.Tests
         protected NavigationSteps _navigationSteps;
         protected User Admin { get; set; }
 
+        protected string assemblyPath { get; set; }
+
+        protected string  filePath { get; set; }
+
         Random random = new Random();
 
         protected Project FirstProject { get; set; }
+
 
         [SetUp]
         public void Setup()
@@ -45,18 +51,14 @@ namespace GraduateWork.Tests
 
             FirstProject = new Project()
             {
-                /*                ProjectName = $"ExampleName{new Random().Next(1, 100000)}",
-                                ProjectSummary = $"ExampleSummary{new Random().Next(1, 100000)}",
-                                ProjectDefaultAccess = 3*/
-
-                ProjectName ="Project23",
-                ProjectSummary ="Project23",
-                //ProjectDefaultAccess = random.Next(0, 5)
-                ProjectDefaultAccess = 3
-
-
+                ProjectName = $"ExampleName{new Random().Next(1, 100000)}",
+                ProjectSummary = $"ExampleSummary{new Random().Next(1, 100000)}",
+                ProjectDefaultAccess = 3,
             };
 
+            assemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
+            filePath = Path.Combine(assemblyPath, "Resources", "ProjectIcon.png");
         }
 
         [TearDown]

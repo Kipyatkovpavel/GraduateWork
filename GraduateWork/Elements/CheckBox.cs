@@ -21,7 +21,7 @@ namespace GraduateWork.Elements
             _uiElement = new UIElement(webDriver, webElement);
         }
 
-        private void Click()
+        public void Click()
         {
             _uiElement.Click();
         }
@@ -45,7 +45,7 @@ namespace GraduateWork.Elements
             }
         }
 
-//        public bool Displayed() => _uiElement.Displayed;
+       public bool Displayed() => _uiElement.Displayed;
 
         public bool Enabled => _uiElement.Enabled;
 

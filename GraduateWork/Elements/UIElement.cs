@@ -50,7 +50,7 @@ public class UIElement : IWebElement
                                         return GetAttribute("value");
                                     }
                                 }*/
-            return Text;
+            return _webElement.Text;
         }
     }
 

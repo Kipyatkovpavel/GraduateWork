@@ -8,7 +8,6 @@ using GraduateWork.Elements;
 using GraduateWork.Helpers.Configuration;
 using GraduateWork.Models;
 using GraduateWork.Pages;
-using GraduateWork.Pages.ProjectPages;
 using GraduateWork.Steps;
 using GraduateWork.Tests;
 using OpenQA.Selenium;
@@ -20,6 +19,7 @@ namespace GraduateWork.Tests
     public class CreateProjectTest : BaseTest
     {
         [Test]
+//        [Retry(2)]
         public void AddProjectCorrectTest()
         {
             ProjectPage projectPage = _navigationSteps.SuccessAuthorization(Admin);//Авторизация

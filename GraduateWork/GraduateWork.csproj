@@ -11,10 +11,14 @@
 
   <ItemGroup>
     <None Remove="appsettings.json" />
+    <None Remove="Resources\ProjectIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\ProjectIcon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

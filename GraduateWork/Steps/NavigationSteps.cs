@@ -1,4 +1,5 @@
-﻿using GraduateWork.Models;
+﻿using GraduateWork.Elements;
+using GraduateWork.Models;
 using GraduateWork.Pages;
 using GraduateWork.Steps;
 using OpenQA.Selenium;
@@ -37,6 +38,15 @@ namespace GraduateWork.Steps
             return CreateProject<ProjectPage>(project);
         }
 
+        public AdminPage SuccessDeleteProject(Project project)
+        {
+            return DeleteProject<AdminPage>(project);
+        }
+
+        public ProjectPage SuccessCreateProjectNotEnd(Project project)
+        {
+            return CreateProjectNotEnd<ProjectPage>(project);
+        }
 
 
         public T CreateProject<T>(Project project) where T : BasePage
@@ -51,6 +61,19 @@ namespace GraduateWork.Steps
             return (T)Activator.CreateInstance(typeof(T), Driver, false);
         }
 
+        public T DeleteProject<T>(Project project) where T : BasePage
+        {
+            AdminPage adminPage = new AdminPage(Driver);
+            adminPage.ClickAdminButton();
+            adminPage.ClickProjectButton();
+            TableCell tableCell = adminPage.ProjectTable.GetCell("Project", project.ProjectName, 3);
+            tableCell.DeleteAction().Click();
+            adminPage.CheckboxDeleteClick();
+            adminPage.DeleteProjectButtonClick();
+
+            return (T)Activator.CreateInstance(typeof(T), Driver, false);
+        }
+
 
 
         public T Login<T>(User user) where T : BasePage
@@ -59,6 +82,17 @@ namespace GraduateWork.Steps
             LoginPage.EmailInput.SendKeys(user.Username);
             LoginPage.PswInput.SendKeys(user.Password);
             LoginPage.LoginInButton.Click();
+
+            return (T)Activator.CreateInstance(typeof(T), Driver, false);
+        }
+
+        public T CreateProjectNotEnd<T>(Project project) where T : BasePage
+        {
+            ProjectPage = new ProjectPage(Driver);
+            ProjectPage.ProjectNameInput.SendKeys(project.ProjectName);
+            ProjectPage.ProjectSummaryInput.SendKeys(project.ProjectSummary);
+            ProjectPage.ClickDropDownDefaultAccess();
+            ProjectPage.ProjectDefaultAccessInput.SelectByIndex(project.ProjectDefaultAccess);
 
             return (T)Activator.CreateInstance(typeof(T), Driver, false);
         }

@@ -8,8 +8,9 @@ namespace GraduateWork.Models
 {
     public class Project
     {
-        public required string ProjectName { get; set; } 
+        public required string ProjectName { get; set; }
         public required string ProjectSummary { get; set; }
         public required int ProjectDefaultAccess { get; set; }
+
     }
 }
