@@ -18,7 +18,9 @@ namespace GraduateWork.Pages
         //Описание элементов
 
         //Вынесены в базовый класс для уменьшения кол-ва кода.
-
+        private static readonly By IconProfileBy = By.CssSelector("div.navbar__user__avatar");
+        private static readonly By PopUpProfileNameOfIconProfileBy = By.CssSelector(".navbar__user__avatar__profile__description__header");
+        private static readonly By PopUpInformationOfIconProfileBy = By.XPath("//div[@class='navbar__user__avatar__profile__description']/p[contains(text(), 'My profile & settings')]");
 
         //инициализация класса + переорпеделения
         public LoginPage(IWebDriver driver) : base(driver)
@@ -31,6 +33,7 @@ namespace GraduateWork.Pages
 
         }
 
+
         //Атомарные методы
         public IWebElement EmailInput => WaitsHelper.WaitForExists(EmailInputBy);
         public IWebElement ErrorLabel => WaitsHelper.WaitForExists(ErrorLabelBy);
@@ -38,6 +41,13 @@ namespace GraduateWork.Pages
         public Button LoginInButton => new(Driver, LoginInButtonBy);
         public IWebElement PageTitle => WaitsHelper.WaitForExists(pageTitle);
 
+/*        public UIElement IconProfile => new(Driver, IconProfileBy);
+        public UIElement PopUpProfileNameOfIconProfile => new(Driver, PopUpProfileNameOfIconProfileBy);
+        public UIElement PopUpInformationOfIconProfile => new(Driver, PopUpInformationOfIconProfileBy);*/
+
+        public IWebElement IconProfile => WaitsHelper.WaitForExists(IconProfileBy);
+        public IWebElement PopUpProfileNameOfIconProfile => WaitsHelper.WaitForExists(PopUpProfileNameOfIconProfileBy);
+        public IWebElement PopUpInformationOfIconProfile => WaitsHelper.WaitForExists(PopUpInformationOfIconProfileBy);
 
 
         //Complex Методы

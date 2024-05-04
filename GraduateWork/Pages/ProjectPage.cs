@@ -1,4 +1,5 @@
-﻿using GraduateWork.Elements;
+﻿using AngleSharp.Dom;
+using GraduateWork.Elements;
 using GraduateWork.Helpers;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
@@ -24,7 +25,6 @@ namespace GraduateWork.Pages
         private static readonly By AddProjectButtonBy = By.CssSelector("[data-target='home--index.addButton']");//Кнопка +Project
         private static readonly By AdminButtonBy = By.XPath("//a[@data-content='Admin']");//Кнопка Admin
         private static readonly By DropDownDefaultAccessBy = By.ClassName("dropdown__container");//Выпадающее меню DefaultAccess
-        private static readonly By CloseWarningMessBy = By.XPath("//button[@data-dismiss='modal']");
         private static readonly By ProjectDialogWindowBy = By.CssSelector("div.dialog__main__content__inner"); //всплывающее сообщение
         private static readonly By CreateProjectButtonBy = By.CssSelector("[data-target='submitButton']"); //Сама кнопка называется Add Project, что бы не было дубликтов
         private static readonly By NameOfCreateProjectBy = By.XPath("//div[@class='page-header__title']");
@@ -32,10 +32,8 @@ namespace GraduateWork.Pages
         private static readonly By SelectFileButtonBy = By.CssSelector("[data-action='click->doSelectAvatar']");
         private static readonly By FileInputBy = By.CssSelector("[data-target='fileInput']");
         private static readonly By ProjectIconBy = By.XPath("//img[starts-with(@src,'https://pavelkipyatkov.testmo.net/attachments/view/')]");
-
         private static readonly By SummaryOfCreateProjectBy = By.XPath("//div[@class='split-about__note']");
-
-
+        private static readonly By NumberOfCharactersBy = By.CssSelector("div.maxlength-counter__counter");
 
         public ProjectPage(IWebDriver driver) : base(driver)
         {
@@ -79,10 +77,13 @@ namespace GraduateWork.Pages
         public IWebElement SummaryOfCreateProject => WaitsHelper.WaitForExists(SummaryOfCreateProjectBy);
         public DropDownMenu ProjectDefaultAccessInput => new(Driver, ProjectDefaultAccessInputBy);
 
+
         public UIElement ProjectIcon => new(Driver, ProjectIconBy);
         public Button SelectFileButton => new(Driver, SelectFileButtonBy);
 
         public UIElement FileInput => new(Driver, FileInputBy);
+
+        public UIElement NumberOfCharacters => new(Driver, NumberOfCharactersBy);
 
         public void ClickAddProjectButton() => AddProjectButton.Click();
         public void ClickAdminButton() => AdminButton.Click();
@@ -114,6 +115,11 @@ namespace GraduateWork.Pages
         public bool DefaultAccessWindowDisplayed()
         {
             return ProjectDialogWindow.Displayed;
+        }
+
+        public void ClearSummaryField()
+        {
+            ProjectSummaryInput.Clear();
         }
 
     }

@@ -48,7 +48,16 @@ namespace GraduateWork.Steps
             return CreateProjectNotEnd<ProjectPage>(project);
         }
 
+/*        public ProjectPage AddingValueBoundaryCheckProject(Project project)
+        {
+            return AddValueSummaryAtBoundaryProject<ProjectPage>(project);
+        }
 
+        public ProjectPage ClearSummaryAtBoundaryProjectCheckProject(Project project)
+        {
+            return ClearSummaryAtBoundaryProject<ProjectPage>(project);
+        }
+*/
         public T CreateProject<T>(Project project) where T : BasePage
         {
             ProjectPage = new ProjectPage(Driver);
@@ -97,5 +106,35 @@ namespace GraduateWork.Steps
             return (T)Activator.CreateInstance(typeof(T), Driver, false);
         }
 
+        /*        public T AddValueSummaryAtBoundaryProject<T>(Project project) where T : BasePage
+                {
+                    ProjectPage = new ProjectPage(Driver);
+                    ProjectPage.ProjectNameInput.SendKeys(project.ProjectName);
+                    ProjectPage.ProjectSummaryInput.SendKeys(project.ProjectSummary);
+
+                    return (T)Activator.CreateInstance(typeof(T), Driver, false);
+                }
+
+                public T ClearSummaryAtBoundaryProject<T>(Project project) where T : BasePage
+                {
+                    ProjectPage = new ProjectPage(Driver);
+                    ProjectPage.ProjectSummaryInput.SendKeys("");
+
+                    return (T)Activator.CreateInstance(typeof(T), Driver, false);
+                }
+        */
+
+        public ProjectPage InputSummaryField(string count)
+        {
+            ProjectPage = new ProjectPage(Driver);
+            ProjectPage.ProjectSummaryInput.SendKeys(count);
+            return ProjectPage;
+        }
+        public ProjectPage ClearSummaryField()
+        {
+            ProjectPage = new ProjectPage(Driver);
+            ProjectPage.ProjectSummaryInput.Clear();
+            return ProjectPage;
+        }
     }
 }
