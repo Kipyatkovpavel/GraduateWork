@@ -31,6 +31,7 @@ namespace GraduateWork.Tests
 
         protected string  filePath { get; set; }
 
+        protected string failedfilePath { get; set; }
         Random random = new Random();
 
         protected Project FirstProject { get; set; }
@@ -46,7 +47,7 @@ namespace GraduateWork.Tests
 
         protected string BoundaryValues81Сharacters { get; set; }
 
-        protected string BoundaryValues200Сharacters { get; set; }
+        protected string BoundaryValues100Сharacters { get; set; }
         [SetUp]
         public void Setup()
         {
@@ -90,13 +91,15 @@ namespace GraduateWork.Tests
             BoundaryValues81Сharacters = new string(Enumerable.Repeat("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", 81)
         .Select(s => s[random.Next(s.Length)]).ToArray());
 
-            BoundaryValues200Сharacters = new string(Enumerable.Repeat("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", 999999)
+            BoundaryValues100Сharacters = new string(Enumerable.Repeat("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", 100)
         .Select(s => s[random.Next(s.Length)]).ToArray());
 
 
             assemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
             filePath = Path.Combine(assemblyPath, "Resources", "ProjectIcon.png");
+
+            failedfilePath = Path.Combine(assemblyPath, "Resources", "videoplayback.mp4");
         }
 
         [TearDown]

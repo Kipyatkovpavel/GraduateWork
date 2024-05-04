@@ -1,5 +1,4 @@
-﻿using AngleSharp.Dom;
-using GraduateWork.Elements;
+﻿using GraduateWork.Elements;
 using GraduateWork.Helpers;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
@@ -34,6 +33,7 @@ namespace GraduateWork.Pages
         private static readonly By ProjectIconBy = By.XPath("//img[starts-with(@src,'https://pavelkipyatkov.testmo.net/attachments/view/')]");
         private static readonly By SummaryOfCreateProjectBy = By.XPath("//div[@class='split-about__note']");
         private static readonly By NumberOfCharactersBy = By.CssSelector("div.maxlength-counter__counter");
+        private static readonly By ContributorsIconBy = By.CssSelector("div.split-about__section-header");
 
         public ProjectPage(IWebDriver driver) : base(driver)
         {
@@ -82,6 +82,7 @@ namespace GraduateWork.Pages
         public Button SelectFileButton => new(Driver, SelectFileButtonBy);
 
         public UIElement FileInput => new(Driver, FileInputBy);
+        public UIElement ContributorsIcon => new(Driver, ContributorsIconBy);
 
         public UIElement NumberOfCharacters => new(Driver, NumberOfCharactersBy);
 
@@ -101,7 +102,10 @@ namespace GraduateWork.Pages
         {
             return ProjectDialogWindow.Displayed;
         }
-
+        public bool ContributorsIconDisplayed()
+        {
+            return ContributorsIcon.Displayed;
+        }
         public bool NameWindowDisplayed()
         {
             return ProjectNameInput.Displayed;

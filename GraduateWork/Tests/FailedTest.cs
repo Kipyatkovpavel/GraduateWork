@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Allure.NUnit.Attributes;
@@ -11,24 +10,24 @@ using GraduateWork.Models;
 using GraduateWork.Pages;
 using GraduateWork.Steps;
 using GraduateWork.Tests;
-using NUnit.Framework.Internal;
 using OpenQA.Selenium;
 
 namespace GraduateWork.Tests
 {
     [AllureEpic("Web Interface")]
-    [AllureFeature("UploadFile Project")]
-    public class UploadFileTes : BaseTest
+    [AllureFeature("Create Project")]
+    public class FailedTest : BaseTest
     {
         [Test]
-        public void UploadFileCorrectTest()
+        public void FailedCreateTest()
         {
             ProjectPage projectPage = _navigationSteps.SuccessAuthorization(Admin);//Авторизация
             projectPage.ClickAddProjectButton();
 
             ProjectPage createProject = _navigationSteps.SuccessCreateProjectNotEnd(FirstProject);//Заполнение всех полей для создания проекта, но не нажатие кнопки создания проекта
             createProject.ClickSelectFileButton();//нажатие кнопка Select для выбора файла на добавление
-            createProject.FileInput.SendKeys(filePath);//Вставка нашего файла в поле
+            createProject.FileInput.SendKeys(failedfilePath);//Вставка неподходящего файла в поле
+
             try
             {
                 Assert.Multiple(() =>
@@ -40,7 +39,6 @@ namespace GraduateWork.Tests
                 });
             }
             catch (Exception ex) { throw new Exception("Проверьте загружаемый файл"); }
-
 
         }
     }

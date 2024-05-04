@@ -24,7 +24,6 @@ namespace GraduateWork.Tests
         public void SuccesfullLoginAndAddProjectTest()
         {
 
-            // NavigationSteps navigationSteps = new NavigationSteps(Driver);
             ProjectPage projectPage = _navigationSteps.SuccessAuthorization(Admin);
             projectPage.ClickAddProjectButton();
             

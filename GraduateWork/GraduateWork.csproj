@@ -12,6 +12,7 @@
   <ItemGroup>
     <None Remove="appsettings.json" />
     <None Remove="Resources\ProjectIcon.png" />
+    <None Remove="Resources\videoplayback.mp4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,6 +20,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\ProjectIcon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\videoplayback.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
