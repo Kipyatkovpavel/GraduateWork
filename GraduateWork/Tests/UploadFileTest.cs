@@ -29,7 +29,9 @@ namespace GraduateWork.Tests
             ProjectPage createProject = _navigationSteps.SuccessCreateProjectNotEnd(FirstProject);//Заполнение всех полей для создания проекта, но не нажатие кнопки создания проекта
             createProject.ClickSelectFileButton();//нажатие кнопка Select для выбора файла на добавление
             createProject.FileInput.SendKeys(filePath);//Вставка нашего файла в поле
-            try
+            Thread.Sleep(3000);//Быстро бежит не всегда успевает прогрузиться
+
+            if (!createProject.ErrorSelectedFileDisplayed())
             {
                 Assert.Multiple(() =>
                 {
@@ -37,9 +39,10 @@ namespace GraduateWork.Tests
                     Thread.Sleep(3000);//Быстро бежит не всегда успевает прогрузиться
                     Assert.That(createProject.ContributorsIconDisplayed());//уникальная иконка -убеждаемся, что находимся на нужной нам странице
                     Assert.That(createProject.CheckThatProjectIconDisplayed);//Проверка отображения нашего изображения на странице созданного проекта
-                });
+                }); 
+
             }
-            catch (Exception ex) { throw new Exception("Проверьте загружаемый файл"); }
+            else Assert.Fail("Проверьте загружаемый файл");
 
 
         }

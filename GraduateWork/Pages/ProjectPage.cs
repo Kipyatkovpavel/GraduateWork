@@ -34,6 +34,7 @@ namespace GraduateWork.Pages
         private static readonly By SummaryOfCreateProjectBy = By.XPath("//div[@class='split-about__note']");
         private static readonly By NumberOfCharactersBy = By.CssSelector("div.maxlength-counter__counter");
         private static readonly By ContributorsIconBy = By.CssSelector("div.split-about__section-header");
+        private static readonly By ErrorSelectedFileBy = By.XPath("//div[contains(@class, 'admin-projects-select-avatar__error') and contains(@class, 'admin-projects-select-avatar__error--visible')]");
 
         public ProjectPage(IWebDriver driver) : base(driver)
         {
@@ -81,8 +82,14 @@ namespace GraduateWork.Pages
         public UIElement ProjectIcon => new(Driver, ProjectIconBy);
         public Button SelectFileButton => new(Driver, SelectFileButtonBy);
 
+
         public UIElement FileInput => new(Driver, FileInputBy);
         public UIElement ContributorsIcon => new(Driver, ContributorsIconBy);
+
+        public bool ErrorSelectedFileDisplayed()
+        {
+            return UIElement.IsElementPresent(Driver, ErrorSelectedFileBy);
+        }
 
         public UIElement NumberOfCharacters => new(Driver, NumberOfCharactersBy);
 

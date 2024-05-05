@@ -12,11 +12,14 @@ using GraduateWork.Models;
 using GraduateWork.Pages;
 using System.Reflection;
 using OpenQA.Selenium.Interactions;
+using Allure.Net.Commons;
+using Allure.NUnit;
 
 namespace GraduateWork.Tests
 {
     [Parallelizable(scope: ParallelScope.All)]
     [FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
+    [AllureNUnit]
     public class BaseTest
     {
         protected IWebDriver Driver { get; private set; }
@@ -48,6 +51,13 @@ namespace GraduateWork.Tests
         protected string BoundaryValues81Сharacters { get; set; }
 
         protected string BoundaryValues100Сharacters { get; set; }
+
+        [OneTimeSetUp]
+        public static void GlobalSterup()
+        {
+            AllureLifecycle.Instance.CleanupResultDirectory();
+        }
+
         [SetUp]
         public void Setup()
         {
