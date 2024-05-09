@@ -31,7 +31,7 @@ namespace GraduateWork.Pages
         private static readonly By NameOfCreateProjectBy = By.XPath("//div[@class='page-header__title']");
         private static readonly By ProjectTableBy = By.CssSelector("[data-target='components--table.table']");
         private static readonly By DeleteDialogWindowBy = By.CssSelector("[data-target='title']");
-        private static readonly By ProjectButtonBy = By.XPath("//a[@href='https://pavelkipyatkov.testmo.net/admin/projects' and @data-content='Projects']");//Кнопка Project после создания проекта
+        private static readonly By ProjectButtonBy = By.XPath("//a[@href='https://pavelkipyatkovtest.testmo.net/admin/projects' and @data-content='Projects']");//Кнопка Project после создания проекта
         private static readonly By CheckboxDeleteBy = By.CssSelector("[data-target='confirmationLabel']");                                                                                                                                                            // private static readonly By NameOfCreateProjectBy = By.CssSelector(".page-header__title::text");
         private static readonly By DeleteProjectButtonBy = By.CssSelector("[data-target='deleteButton']");                                                                                                                                                                                                                                                  //        private static readonly By DeleteBasketButtonBy = By.CssSelector("tr[data-name='Test_Delete'] td.table__field__action div[data-action='delete']");
         private static readonly By SummaryOfCreateProjectBy = By.XPath("//div[@class='split-about__note']");

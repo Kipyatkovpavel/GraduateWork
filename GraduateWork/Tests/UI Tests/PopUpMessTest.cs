@@ -31,7 +31,7 @@ namespace GraduateWork.Tests
 
             Assert.Multiple(() =>
             {
-                Assert.That(loginPage.PopUpProfileNameOfIconProfile.Text.Equals("Pavel Kipyatkov"));
+                Assert.That(loginPage.PopUpProfileNameOfIconProfile.Text.Equals("Kipyatkov Pavel"));
                 Assert.That(loginPage.PopUpInformationOfIconProfile.Text.Equals("My profile & settings"));
             });
 

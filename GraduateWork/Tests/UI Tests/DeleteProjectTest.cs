@@ -36,14 +36,12 @@ namespace GraduateWork.Tests
         }
 
 /*        [Test]
- //       [Repeat(5)]
+        [Repeat(3)]
         public void DeleteExcessCorrectTest()//Тест для удаления мешающих проектов
         {
             ProjectPage projectPage = _navigationSteps.SuccessAuthorization(Admin);//Авторизация
 
             AdminPage deleteProject = _navigationSteps.DeleteExcessProject(""); //Удаление проекта
-*/
-
-        
+        }*/
     }
 }

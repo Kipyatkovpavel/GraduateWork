@@ -27,10 +27,10 @@ namespace GraduateWork.Pages
         private static readonly By ProjectDialogWindowBy = By.CssSelector("div.dialog__main__content__inner"); //всплывающее сообщение
         private static readonly By CreateProjectButtonBy = By.CssSelector("[data-target='submitButton']"); //Сама кнопка называется Add Project, что бы не было дубликтов
         private static readonly By NameOfCreateProjectBy = By.XPath("//div[@class='page-header__title']");
-        private static readonly By ProjectButtonBy = By.XPath("//a[@href='https://pavelkipyatkov.testmo.net/admin/projects' and @data-content='Projects']");//Кнопка Project после создания проекта
+        private static readonly By ProjectButtonBy = By.XPath("//a[@href='https://pavelkipyatkovtest.testmo.net/admin/projects' and @data-content='Projects']");//Кнопка Project после создания проекта
         private static readonly By SelectFileButtonBy = By.CssSelector("[data-action='click->doSelectAvatar']");
         private static readonly By FileInputBy = By.CssSelector("[data-target='fileInput']");
-        private static readonly By ProjectIconBy = By.XPath("//img[starts-with(@src,'https://pavelkipyatkov.testmo.net/attachments/view/')]");
+        private static readonly By ProjectIconBy = By.XPath("//img[starts-with(@src,'https://pavelkipyatkovtest.testmo.net/attachments/view/')]");
         private static readonly By SummaryOfCreateProjectBy = By.XPath("//div[@class='split-about__note']");
         private static readonly By NumberOfCharactersBy = By.CssSelector("div.maxlength-counter__counter");
         private static readonly By ContributorsIconBy = By.CssSelector("div.split-about__section-header");
