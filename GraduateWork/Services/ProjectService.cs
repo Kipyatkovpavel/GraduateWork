@@ -26,6 +26,8 @@ namespace GraduateWork.Services
              .AddHeader(key, $"Bearer {token}");
 
             return request;
+/*            return new RestRequest()
+    .AddHeader("Authorization", $"Bearer {token}");*/
 
         }
         public Task<Project> AddProject(Project project)
@@ -36,29 +38,43 @@ namespace GraduateWork.Services
             return _client.ExecuteAsync<Project>(request);
         }
 
-        public Task<Project> GetProject(string projectId)
-        {
-            var request = new RestRequest("index.php?/api/v2/get_project/{project_id}")
-                    .AddUrlSegment("project_id", projectId);
+        /*        public Task<Projects> GetProject(string projectId)
+                {
+                    var request = new RestRequest("index.php?/api/v2/get_project/{project_id}")
+                            .AddUrlSegment("project_id", projectId);
 
-           return _client.ExecuteAsync<Project>(request);
+                   return _client.ExecuteAsync<Project>(request);
+                }*/
+
+        public async Task<Result> GetAllProjects(string key, string token)
+        {
+            var request = new RestRequest("api/v1/projects")
+                .AddHeader(key, $"Bearer {token}");
+            var response = await _client.ExecuteAsync<Result>(request);
+
+            return response;
         }
 
-/*        public Task<Projects> GetProjects()
+/*        public Task<Result> GetAllProjects(string key, string token, )
         {
-            var request = new RestRequest("index.php?/api/v2/get_projects");
+            var request = new RestRequest("api/v1/{user}")
+             .AddUrlSegment("user", id)
+             .AddHeader(key, $"Bearer {token}");
 
-            return _client.ExecuteAsync<Projects>(request);
+            var request1 = new RestRequest("index.php?/api/v1/projects/");
+            var response = _client.ExecuteAsync<Result>(request1);
+
+            return response;
         }*/
 
-/*        public Task<Project> UpdateProject(Project project)
-        {
-            var request = new RestRequest("index.php?/api/v2/update_project/{project_id}", Method.Post)
-                .AddUrlSegment("project_id", project.Id)
-                .AddJsonBody(project);
+        /*        public Task<Project> UpdateProject(Project project)
+                {
+                    var request = new RestRequest("index.php?/api/v2/update_project/{project_id}", Method.Post)
+                        .AddUrlSegment("project_id", project.Id)
+                        .AddJsonBody(project);
 
-            return _client.ExecuteAsync<Project>(request);
-        }*/
+                    return _client.ExecuteAsync<Project>(request);
+                }*/
 
         public HttpStatusCode DeleteProject(string id)
         {
@@ -78,5 +94,7 @@ namespace GraduateWork.Services
         {
             throw new NotImplementedException();
         }
+
+
     }
 }

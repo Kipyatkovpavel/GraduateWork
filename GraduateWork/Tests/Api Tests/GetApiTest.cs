@@ -1,4 +1,5 @@
 ﻿using GraduateWork.Helpers.Configuration;
+using GraduateWork.Models;
 using NLog;
 using RestSharp;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace GraduateWork.Tests.Api_Tests
@@ -22,7 +24,7 @@ namespace GraduateWork.Tests.Api_Tests
             //Setup Rest Client
 
             var client = new RestClient(Configurator.AppSettingsApi.URL);
-                        
+
             //Setup Request
             var request = ProjectService.Authorization(Configurator.AppSettingsApi.Authorization, Configurator.AppSettingsApi.Token);
 
@@ -39,6 +41,12 @@ namespace GraduateWork.Tests.Api_Tests
                 Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
                 Assert.That(name, Is.EqualTo("Kipyatkov Pavel"));
             });
+            var response1 = ProjectService.GetAllProjects(Configurator.AppSettingsApi.Authorization, Configurator.AppSettingsApi.Token);
+
+            var actual = response1.Result;
+            _logger.Info(actual.ToString());
+
+
         }
         [Test]
         [Order(1)]
@@ -66,34 +74,41 @@ namespace GraduateWork.Tests.Api_Tests
                 Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Unauthorized));
                 Assert.That(name, Is.EqualTo(null));
             });
+
+
         }
 
         [Test]
         [Order(3)]
-        public void AuthorizationCorrectApiTest()
+        public async Task GetAllProjectApiTest()
         {
-            //Setup Rest Client
-
             var client = new RestClient(Configurator.AppSettingsApi.URL);
 
-            //Setup Request
-            var request = ProjectService.Authorization(Configurator.AppSettingsApi.Authorization, Configurator.AppSettingsApi.Token);
+            var result =  await ProjectService.GetAllProjects(Configurator.AppSettingsApi.Authorization, Configurator.AppSettingsApi.Token);
 
-            //Execute Request
-            var response = client.ExecuteGet(request);
+/*            var response = client.ExecuteGet(request);
+                Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Unauthorized));
+            var actual = response1.Result;*/
+            _logger.Info(result.ToString());
 
-            _logger.Info(response.Content);
 
-            dynamic responseObject = Newtonsoft.Json.JsonConvert.DeserializeObject(response.Content);// десеализуем, что бы можно было сравнить с нашим значением
-
-            string name = responseObject!.name;
-            Assert.Multiple(() =>
+/*            Assert.Multiple(() =>
             {
-                Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-                Assert.That(name, Is.EqualTo("Kipyatkov Pavel"));
-            });
+                Assert.That(response1.Result.Page, Is.EqualTo(_project.Name));
+                Assert.That(actualProject.Result.Announcement, Is.EqualTo(_project.Announcement));
+                Assert.That(actualProject.Result.ShowAnnouncement, Is.EqualTo(_project.ShowAnnouncement));
+                Assert.That(actualProject.Result.SuiteMode, Is.EqualTo(_project.SuiteMode));
+
+            });*/
         }
 
 
     }
 }
+/*[JsonPropertyName("page")] public int Page { get; set; }
+[JsonPropertyName("prev_page")] public int? PrevPage { get; set; }
+[JsonPropertyName("next_page")] public int? NextPage { get; set; }
+[JsonPropertyName("last_page")] public int LastPage { get; set; }
+[JsonPropertyName("per_page")] public int PerPage { get; set; }
+[JsonPropertyName("total")] public int Total { get; set; }
+[JsonPropertyName("projects")] public List<Projects> Projects { get; set; } = new();*/
