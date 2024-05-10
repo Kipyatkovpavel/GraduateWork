@@ -70,11 +70,11 @@ namespace GraduateWork.Tests
 
             Admin = new User()
             {
-                Username = Configurator.AppSettings.Username,
-                Password = Configurator.AppSettings.Password
+                Username = Configurator.AppSettingsUI.Username,
+                Password = Configurator.AppSettingsUI.Password
             };
 
-            Driver.Navigate().GoToUrl(Configurator.AppSettings.URL);
+            Driver.Navigate().GoToUrl(Configurator.AppSettingsUI.URL);
 
             FirstProject = new Project()
             {

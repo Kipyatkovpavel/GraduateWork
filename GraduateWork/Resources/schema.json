@@ -1,0 +1,55 @@
+﻿{
+  "description": "Project Schema",
+  "type": "object",
+  "properties": {
+    "page": { "type": "integer" },
+    "prev_page": { "type": [ "integer", "null" ] },
+    "next_page": { "type": [ "integer", "null" ] },
+    "last_page": { "type": "integer" },
+    "per_page": { "type": "integer" },
+    "total": { "type": "integer" },
+    "result": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "name": { "type": "string" },
+          "note": { "type": "string" },
+          "is_completed": { "type": "boolean" },
+          "milestone_count": { "type": "integer" },
+          "milestone_active_count": { "type": "integer" },
+          "milestone_completed_count": { "type": "integer" },
+          "run_count": { "type": "integer" },
+          "run_active_count": { "type": "integer" },
+          "run_closed_count": { "type": "integer" },
+          "session_count": { "type": "integer" },
+          "session_active_count": { "type": "integer" },
+          "session_closed_count": { "type": "integer" },
+          "automation_source_count": { "type": "integer" },
+          "automation_source_active_count": { "type": "integer" },
+          "automation_source_retired_count": { "type": "integer" },
+          "automation_run_count": { "type": "integer" },
+          "automation_run_active_count": { "type": "integer" },
+          "automation_run_completed_count": { "type": "integer" },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": { "type": "integer" },
+          "updated_at": {
+            "type": [ "string", "null" ],
+            "format": "date-time"
+          },
+          "updated_by": { "type": [ "integer", "null" ] },
+          "completed_at": {
+            "type": [ "string", "null" ],
+            "format": "date-time"
+          }
+        },
+        "required": [ "id", "name", "is_completed", "created_at", "created_by" ]
+      }
+    }
+  },
+  "required": [ "page", "last_page", "per_page", "total", "result" ]
+}

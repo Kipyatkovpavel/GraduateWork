@@ -32,7 +32,7 @@ namespace GraduateWork.Pages
         [AllureStep("Открыта страница")]
         protected void OpenPageByURL()
         {
-            Driver.Navigate().GoToUrl(Configurator.AppSettings.URL + GetEndPoint());
+            Driver.Navigate().GoToUrl(Configurator.AppSettingsUI.URL + GetEndPoint());
         }
 
         public BasePage(IWebDriver driver)

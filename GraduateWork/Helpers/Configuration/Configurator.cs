@@ -30,16 +30,31 @@ namespace GraduateWork.Helpers.Configuration
             return builder.Build();
         }
 
-        public static AppSettings AppSettings
+        public static AppSettingsUI AppSettingsUI
         {
             get
             {
-                var appSettings = new AppSettings();
-                var child = Configuration.GetSection("AppSettings");
+                var appSettings = new AppSettingsUI();
+                var child = Configuration.GetSection("AppSettingsUI");
 
                 appSettings.URL = child["URL"];
                 appSettings.Username = child["Username"];
                 appSettings.Password = child["Password"];
+
+                return appSettings;
+            }
+        }
+
+        public static AppSettingsApi AppSettingsApi
+        {
+            get
+            {
+                var appSettings = new AppSettingsApi();
+                var child = Configuration.GetSection("AppSettingsApi");
+
+                appSettings.URL = child["URL"];
+                appSettings.Token = child["Token"];
+                appSettings.Authorization = child["Authorization"];
 
                 return appSettings;
             }

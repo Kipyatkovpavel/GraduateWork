@@ -43,7 +43,7 @@ namespace GraduateWork.Tests
                 .IncorrectLogin(new User
                 {
                     Username = "pykipyao@mts.ru",
-                    Password = Configurator.AppSettings.Password
+                    Password = Configurator.AppSettingsUI.Password
                 })
                 .ErrorLabel.Text.Trim(),
                 Is.EqualTo("These credentials do not match our records or the user account is not allowed to log in."));
