@@ -18,13 +18,10 @@ namespace GraduateWork.Clients
 
         public RestClientExtended()
         {
-            var options = new RestClientOptions(Configurator.AppSettingsApi.URL ?? throw new InvalidOperationException())
-            {
-                Authenticator =
-                     new HttpBasicAuthenticator(Configurator.AppSettingsApi.Authorization, Configurator.AppSettingsApi.Token)
-            };
-
+            var options =
+                new RestClientOptions(Configurator.AppSettingsApi.URL ?? throw new InvalidOperationException());
             _client = new RestClient(options);
+            _client.AddDefaultHeader( Configurator.AppSettingsApi.Authorization ,$"Bearer {Configurator.AppSettingsApi.Token}");
         }
         public void Dispose()
         {

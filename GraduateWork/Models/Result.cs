@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GraduateWork.Models
 {
-    public record Result
+    public record ResultProject
     {
         [JsonPropertyName("page")] public int Page { get; set; }
         [JsonPropertyName("prev_page")] public int? PrevPage { get; set; }
@@ -15,6 +15,6 @@ namespace GraduateWork.Models
         [JsonPropertyName("last_page")] public int LastPage { get; set; }
         [JsonPropertyName("per_page")] public int PerPage { get; set; }
         [JsonPropertyName("total")] public int Total { get; set; }
-        [JsonPropertyName("projects")] public List<Projects> Projects { get; set; } = new();
+        [JsonPropertyName("result")] public Projects[] Result { get; set; } 
     }
 }

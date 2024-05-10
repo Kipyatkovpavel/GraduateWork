@@ -12,8 +12,6 @@ namespace GraduateWork.Tests
     public class BaseApiTest
     {
         protected ProjectService? ProjectService;
-        protected const string BaseRestUrl = "https://aqa2504.testrail.io/";
-        
 
         [OneTimeSetUp]
         public void SetupApi()
