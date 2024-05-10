@@ -41,10 +41,7 @@ namespace GraduateWork.Tests.Api_Tests
                 Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
                 Assert.That(name, Is.EqualTo("Kipyatkov Pavel"));
             });
-            var response1 = ProjectService.GetAllProjects(Configurator.AppSettingsApi.Authorization, Configurator.AppSettingsApi.Token);
 
-            var actual = response1.Result;
-            _logger.Info(actual.ToString());
 
 
         }
@@ -86,9 +83,11 @@ namespace GraduateWork.Tests.Api_Tests
 
             var result =  await ProjectService.GetAllProjects(Configurator.AppSettingsApi.Authorization, Configurator.AppSettingsApi.Token);
 
-/*            var response = client.ExecuteGet(request);
-                Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Unauthorized));
-            var actual = response1.Result;*/
+
+
+            /*            var response = client.ExecuteGet(request);
+                            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Unauthorized));
+                        var actual = response1.Result;*/
             _logger.Info(result.ToString());
 
 

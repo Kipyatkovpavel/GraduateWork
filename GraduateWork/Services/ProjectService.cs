@@ -46,13 +46,22 @@ namespace GraduateWork.Services
                    return _client.ExecuteAsync<Project>(request);
                 }*/
 
-        public async Task<Result> GetAllProjects(string key, string token)
+/*        public async Task<Result> GetAllProjects(string key, string token)
         {
             var request = new RestRequest("api/v1/projects")
                 .AddHeader(key, $"Bearer {token}");
             var response = await _client.ExecuteAsync<Result>(request);
 
             return response;
+        }        */
+        
+        public  Task<Result> GetAllProjects(string key, string token)
+        {
+            var request = new RestRequest("api/v1/projects")
+                .AddHeader(key, $"Bearer {token}");
+//            var response = await _client.ExecuteAsync<Result>(request);
+
+            return _client.ExecuteAsync<Result>(request);
         }
 
 /*        public Task<Result> GetAllProjects(string key, string token, )
