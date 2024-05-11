@@ -12,6 +12,7 @@ namespace GraduateWork.Tests
     public class BaseApiTest
     {
         protected ProjectService? ProjectService;
+        protected string NameForTest { get; set; }
 
         [OneTimeSetUp]
         public void SetupApi()
@@ -19,6 +20,8 @@ namespace GraduateWork.Tests
             var restClient = new RestClientExtended();
 
             ProjectService = new ProjectService(restClient);
+
+            NameForTest = "Kipyatkov Pavel";
         }
 
         [OneTimeTearDown]

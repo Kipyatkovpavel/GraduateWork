@@ -10,8 +10,8 @@ namespace GraduateWork.Models
     public record Projects
     {
         [JsonPropertyName("id")] public int Id { get; set; }
-        [JsonPropertyName("name")] public string? Name { get; init; }
-        [JsonPropertyName("note")] public string? Note { get; init; }
+        [JsonPropertyName("name")] public string? Name { get; set; }
+        [JsonPropertyName("note")] public string? Note { get; set; }
         [JsonPropertyName("is_completed")] public bool IsCompleted { get; set; }
         [JsonPropertyName("milestone_count")] public int MilestoneCount { get; set; }
         [JsonPropertyName("milestone_active_count")] public int MilestoneActiveCount { get; set; }
@@ -33,5 +33,13 @@ namespace GraduateWork.Models
         [JsonPropertyName("updated_at")] public DateTime? UpdatedAt { get; set; }
         [JsonPropertyName("updated_by")] public int? UpdatedBy { get; set; }
         [JsonPropertyName("completed_at")] public DateTime? CompletedAt { get; set; }
+
+
+        public class ResultContainer
+        {
+            [JsonPropertyName("result")]
+            public Projects Result { get; set; }
+
+        }
     }
 }

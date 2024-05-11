@@ -39,7 +39,7 @@ namespace GraduateWork.Tests
 
         protected Project FirstProject { get; set; }
 
-
+        protected string NameForTest { get; set; }
         protected string BoundaryValues0Сharacters { get; set; }
 
         protected string BoundaryValues1Сharacters { get; set; }
@@ -83,7 +83,7 @@ namespace GraduateWork.Tests
                 ProjectDefaultAccess = 3,
             };
 
-
+            NameForTest = "Kipyatkov Pavel";
 
             BoundaryValues0Сharacters = "";
 

@@ -13,4 +13,5 @@ namespace GraduateWork.Models
         public required int ProjectDefaultAccess { get; set; }
 
     }
+
 }

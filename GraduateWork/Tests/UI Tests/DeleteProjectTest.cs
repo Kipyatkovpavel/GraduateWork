@@ -35,13 +35,14 @@ namespace GraduateWork.Tests
 
         }
 
-/*        [Test]
+        [Test]
         [Repeat(3)]
-        public void DeleteExcessCorrectTest()//Тест для удаления мешающих проектов
+        public void DeleteExcessCorrectTest()//Тест для удаления мешающих проектов( Для запуска апи тестов требуется прогнать все UI тесты)
         {
-            ProjectPage projectPage = _navigationSteps.SuccessAuthorization(Admin);//Авторизация
 
+            ProjectPage projectPage = _navigationSteps.SuccessAuthorization(Admin);//Авторизация
+            Thread.Sleep(10000);
             AdminPage deleteProject = _navigationSteps.DeleteExcessProject(""); //Удаление проекта
-        }*/
+        }
     }
 }

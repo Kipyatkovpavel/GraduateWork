@@ -19,7 +19,7 @@ namespace GraduateWork.Tests
     public class CreateProjectTest : BaseTest
     {
         [Test]
-//        [Retry(2)]
+
         public void AddProjectCorrectTest()
         {
             ProjectPage projectPage = _navigationSteps.SuccessAuthorization(Admin);//Авторизация

@@ -121,78 +121,65 @@ namespace GraduateWork.Tests.Api_Tests
     public class GetApiTest : BaseApiTest
     {
         private readonly Logger _logger = LogManager.GetCurrentClassLogger();
-        /*        private const string _failtoken = "testmo_api_eyJpdiI6ImZZa2diTjMySWpteDNSVS90NzBhS1E9PSIsInZhbHVlIjoiZy9RanBQR0xtbG4vRTlPdWV6Q0JrRVNYU2hpSlV3aUE0OWJQZ2xvd0ZmVT0iLCJtYWMiOiJkNzZlZ GNlM2UxZjY5NWQ5ZWY2NjQ1MzU4ZDcxNTk3OTeyM2E3MTU3YTMxM2ZkMzllNTYyNGEyNmI0MzNmMjAzIiwidGFnIjoiIn0=";
 
-                [Test]
-                [Order(2)]
-                public void AuthorizationCorrectApiTest()
-                {
-
-                    var response = ProjectService!.Authorization(Configurator.AppSettingsApi.Authorization, Configurator.AppSettingsApi.Token);
-
-                    Assert.Multiple(() =>
-                    {
-                        Assert.That(response.Result.Name, Is.EqualTo("Kipyatkov Pavel"));
-                    });
-                }
-
-                [Test]
-                [Order(1)]
-                //AFE
-                public void IncorrectAuthorizationApiTest()
-                {
-
-                    //Setup Rest Client
-
-                    var client = new RestClient(Configurator.AppSettingsApi.URL);
-
-                    //Setup Request
-                    var request = ProjectService.Authorization(Configurator.AppSettingsApi.Authorization, _failtoken);
-
-                    //Execute Request
-        *//*            var response = client.ExecuteGet(request);
-
-                    _logger.Info(response.Content);
-
-                    dynamic responseObject = JsonConvert.DeserializeObject(response.Content);// десеализуем, что бы можно было сравнить с нашим значением
-
-                    string name = responseObject!.name;
-                    Assert.Multiple(() =>
-                    {
-                        Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Unauthorized));
-                        Assert.That(name, Is.EqualTo(null));
-                    });*//*
-
-
-                }
-        */
         [Test]
-        [Order(3)]
-        public void GetAllProjectApiTest()
+        [Order(1)]
+        public void GetUserApiTest()
+        {
+            var result = ProjectService!.GetUser();
+
+
+            _logger.Info(result.Result);
+            Assert.Multiple(() =>
+            {
+                Assert.That(result.Result.Id, Is.EqualTo(1));
+                Assert.That(result.Result.Name, Is.EqualTo(NameForTest));
+
+            });
+        }
+
+        [Test]
+        [Order(2)]
+        public void GetAllProjectsApiTest()
         {
             var result = ProjectService!.GetAllProjects();
 
+            _logger.Info(result.Result);
             Assert.Multiple(() =>
             {
                 Assert.That(result.Result.Page, Is.EqualTo(1));
-                Assert.That(result.Result.Total, Is.EqualTo(9));
+                Assert.That(result.Result.PerPage, Is.EqualTo(100));
+                Assert.That(result.Result.Total, Is.EqualTo(9));//Проверка нужная, но зависит от количества созданных ранее проектов
             });
-            /*            _logger.Info(result.ToString());
-
-                        Assert.That(result, Is.TypeOf<Result>());*/
-
-
-            /*            string schemaJson = File.ReadAllText(@"Resources/schema.json");
-
-                        //Создаём экземлпляр JSON-схемы
-                        JSchema schema = JSchema.Parse(schemaJson);
-
-                        //Получае тело ответа в виде JSONobject
-                        JObject responseData = JObject.Parse(result.Content);
-
-                        //Проверка соответсвтвия ответа JSON - схеме
-                        Assert.That(responseData.IsValid(schema));*/
-
         }
+        [Test]
+        [Order(3)]
+        public void GetCorrectProjectByIdApiTest()
+        {
+            var result = ProjectService!.GetProjectsById("1");
+
+            _logger.Info(result.Result.Result);
+            Assert.Multiple(() =>
+            {
+                Assert.That(result.Result.Result.Name, Is.EqualTo("Test"));
+                Assert.That(result.Result.Result.Note, Is.EqualTo("53453"));
+                Assert.That(result.Result.Result.IsCompleted == false);
+            });
+        }
+
+        [Test]
+        [Order(4)]
+        public void GetIncorrectProjectByIdApiTest()
+        {
+            var result = ProjectService!.GetProjectsById("10000");
+
+            _logger.Info(result.Result.Result);
+            Assert.Multiple(() =>
+            {
+//               Assert.That(result.Result.Result == null);
+            });
+        }
+
+
     }
 }

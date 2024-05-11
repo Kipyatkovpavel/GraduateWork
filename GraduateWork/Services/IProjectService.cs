@@ -11,9 +11,12 @@ namespace GraduateWork.Services
 {
     public interface IProjectService
     {
-        Task<ResultProject> GetAllProjects();
+        Task<ResultProjects> GetAllProjects();
+        Task<Projects.ResultContainer> GetProjectsById(string id);
         Task<Project> AddProject(Project project);
         Task<Project> UpdateProject(Project project);
         HttpStatusCode DeleteProject(string id);
+        Task<AuthResponse> GetUser();
+
     }
 }

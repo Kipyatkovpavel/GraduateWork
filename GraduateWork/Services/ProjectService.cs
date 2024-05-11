@@ -20,6 +20,12 @@ namespace GraduateWork.Services
             _client = client;
         }
 
+        public Task<AuthResponse> GetUser()
+        {
+            var request = new RestRequest("/api/v1/user");
+
+            return _client.ExecuteAsync<AuthResponse>(request);
+        }
         public Task<Project> AddProject(Project project)
         {
             var request = new RestRequest("index.php?/api/v2/add_project", Method.Post)
@@ -28,12 +34,19 @@ namespace GraduateWork.Services
             return _client.ExecuteAsync<Project>(request);
         }
 
- 
-        public Task<ResultProject> GetAllProjects()
+        public Task<Projects.ResultContainer> GetProjectsById(string id)
+        {
+            var request = new RestRequest("/api/v1/projects/{project_id}")
+                .AddUrlSegment("project_id", id);
+
+            return _client.ExecuteAsync<Projects.ResultContainer>(request);
+        }
+
+        public Task<ResultProjects> GetAllProjects()
         {
             var request = new RestRequest("/api/v1/projects");
 
-           return _client.ExecuteAsync<ResultProject>(request);
+           return _client.ExecuteAsync<ResultProjects>(request);
         }
 
  
