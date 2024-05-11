@@ -16,7 +16,5 @@ namespace GraduateWork.Services
         Task<ErrorResponseDetails> GetProjectByIncorrectId(string projectid);
         Task<AuthResponse> GetUser();
 
-        Task<Projects.ResultContainer> AddProject(AddProjectRequest AddProjectRequest);
-
     }
 }

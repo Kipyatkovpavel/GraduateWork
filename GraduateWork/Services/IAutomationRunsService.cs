@@ -12,5 +12,6 @@ namespace GraduateWork.Services
     public interface IAutomationRunsService
     {
         Task<AutomationRunResponse> PostAutomationRuns(int projectId, AutomationRunRequest requestBody);
+        Task<AllAutomationRuns> GetAllAutomationRunsID(string projectId);
     }
 }

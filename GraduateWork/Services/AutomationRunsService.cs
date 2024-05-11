@@ -22,17 +22,23 @@ namespace GraduateWork.Services
         }
 
 
-       public Task<AutomationRunResponse> PostAutomationRuns(int projectId, AutomationRunRequest requestBody)
+        public Task<AutomationRunResponse> PostAutomationRuns(int projectId, AutomationRunRequest requestBody)
         {
-            var request = new RestRequest("/api/v1/projects/1/automation/runs", Method.Post)
+            var request = new RestRequest("/api/v1/projects/{project_id}/automation/runs", Method.Post)
                 .AddUrlSegment("project_id", projectId)
                 .AddJsonBody(requestBody);
 
             return _client.ExecuteAsync<AutomationRunResponse>(request);
         }
 
+        public Task<AllAutomationRuns> GetAllAutomationRunsID(string projectId)
+        {
+            var request = new RestRequest("/api/v1/projects/{project_id}/automation/runs")
+                .AddUrlSegment("project_id", projectId);
 
- 
+            return _client.ExecuteAsync<AllAutomationRuns>(request);
+        }
+
         public void Dispose()
         {
             _client?.Dispose();

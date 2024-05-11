@@ -31,7 +31,7 @@ namespace GraduateWork.Tests
 
             TestNameMilestones = "TestNameMilestones";
 
-            TestSummaryMilestones = "TestSummaryMilestonesl";
+            TestSummaryMilestones = "TestSummaryMilestones";
         }
 
         [OneTimeTearDown]
