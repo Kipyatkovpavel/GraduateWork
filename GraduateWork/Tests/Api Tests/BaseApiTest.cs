@@ -13,6 +13,7 @@ namespace GraduateWork.Tests
     {
         protected ProjectService? ProjectService;
         protected MilestonesService? MilestonesService;
+        protected AutomationRunsService? AutomationRunsService;
         protected string NameForTest { get; set; }
         protected string TestNameMilestones { get; set; }
         protected string TestSummaryMilestones { get; set; }
@@ -24,6 +25,7 @@ namespace GraduateWork.Tests
 
             ProjectService = new ProjectService(restClient);
             MilestonesService = new MilestonesService(restClient);
+            AutomationRunsService = new AutomationRunsService(restClient);
 
             NameForTest = "Kipyatkov Pavel";
 
@@ -37,6 +39,7 @@ namespace GraduateWork.Tests
         {
             ProjectService?.Dispose();
             MilestonesService?.Dispose();
+            AutomationRunsService?.Dispose();
         }
     }
 }

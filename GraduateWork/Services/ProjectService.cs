@@ -25,12 +25,14 @@ namespace GraduateWork.Services
         public Task<Projects.ResultContainer> AddProject(AddProjectRequest AddProjectRequest)
         {
             var request = new RestRequest("/admin/projects/create", Method.Post)
-                .AddHeader("content - type", "application/json")
+                .AddHeader("content-type", "application/json")
                 .AddHeader("x-csrf-token", "A5ceR58xkzhNtWlBUenf0iS3qPuBEexaQ06Jz1fe")
                 .AddJsonBody(AddProjectRequest);
 
             return _client.ExecuteAsync<Projects.ResultContainer>(request);
         }
+
+
 
         public Task<AuthResponse> GetUser()
         {

@@ -23,23 +23,17 @@ namespace GraduateWork.Tests.Api_Tests
 
         [Test]
         [Order(1)]
-        public void PostAddProjectApiTest()
+        public void PostAutomationRunsApiTest()
         {
-            AddProjectRequest requestBody = new AddProjectRequest()
+            AutomationRunRequest requestBody = new AutomationRunRequest()
             {
-                Name = "TestApiCreate",
-                Note = "TestSummaryApi",
-                IsCompleted = false,
-                Access = [],
-                AvatarId = 18,
-                AvatarIndex = null,
-                DefaultAccess = 2,
-                DefaultRoleId = null
+                Name = "TestApiCreate1",
+                Source = "TestSourceApi2"
             };
             _logger.Info(requestBody.ToString());
-            var response = ProjectService!.AddProject(requestBody);
+            var response = AutomationRunsService!.PostAutomationRuns(1 ,requestBody);
 
-            _logger.Info(response.Result.ToString());
+            _logger.Info(response.ToString());
 
         }
     }
