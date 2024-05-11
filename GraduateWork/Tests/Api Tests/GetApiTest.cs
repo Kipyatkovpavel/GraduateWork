@@ -156,7 +156,7 @@ namespace GraduateWork.Tests.Api_Tests
         [Order(3)]
         public void GetCorrectProjectByIdApiTest()
         {
-            var result = ProjectService!.GetProjectsById("1");
+            var result = ProjectService!.GetProjectById("1");
 
             _logger.Info(result.Result.Result);
             Assert.Multiple(() =>
@@ -171,15 +171,41 @@ namespace GraduateWork.Tests.Api_Tests
         [Order(4)]
         public void GetIncorrectProjectByIdApiTest()
         {
-            var result = ProjectService!.GetProjectsById("10000");
+            var result = ProjectService!.GetProjectByIncorrectId("545");
+
+            _logger.Info(result.Result.Message);
+            Assert.Multiple(() =>
+            {
+                Assert.That(result.Result.Message, Is.EqualTo("The project does not exist or you do not have the permissions to access it."));
+            });
+        }
+
+        [Test]
+        [Order(5)]
+        public void GetCorrectMilestonesApiTest()
+        {
+            var result = MilestonesService!.GetMilestonesById("1");
 
             _logger.Info(result.Result.Result);
             Assert.Multiple(() =>
             {
-//               Assert.That(result.Result.Result == null);
+                Assert.That(result.Result.Result.Name, Is.EqualTo(TestNameMilestones));
+                Assert.That(result.Result.Result.Note, Is.EqualTo(TestSummaryMilestones));
             });
         }
 
+        [Test]
+        [Order(6)]
+        public void GetInCorrectMilestonesApiTest()
+        {
+            var result = MilestonesService!.GetMilestonesIncorrectById("545");
+
+            _logger.Info(result.Result.Message);
+            Assert.Multiple(() =>
+            {
+                Assert.That(result.Result.Message, Is.EqualTo("The milestone does not exist or was deleted or belongs to a different project."));
+            });
+        }
 
     }
 }

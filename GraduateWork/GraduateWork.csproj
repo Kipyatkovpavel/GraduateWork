@@ -13,7 +13,6 @@
     <None Remove="appsettings.json" />
     <None Remove="NLog.config" />
     <None Remove="Resources\ProjectIcon.png" />
-    <None Remove="Resources\schema.json" />
     <None Remove="Resources\videoplayback.mp4" />
   </ItemGroup>
 
@@ -25,9 +24,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\ProjectIcon.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\schema.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\videoplayback.mp4">

@@ -40,6 +40,7 @@ namespace GraduateWork.Tests
         protected Project FirstProject { get; set; }
 
         protected string NameForTest { get; set; }
+
         protected string BoundaryValues0Сharacters { get; set; }
 
         protected string BoundaryValues1Сharacters { get; set; }
@@ -85,7 +86,9 @@ namespace GraduateWork.Tests
 
             NameForTest = "Kipyatkov Pavel";
 
-            BoundaryValues0Сharacters = "";
+
+
+        BoundaryValues0Сharacters = "";
 
             BoundaryValues1Сharacters = new string(Enumerable.Repeat("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", 1)
                     .Select(s => s[random.Next(s.Length)]).ToArray());
