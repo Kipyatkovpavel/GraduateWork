@@ -45,7 +45,6 @@ namespace GraduateWork.Tests
 
             }
             else { Assert.Fail("Проверьте загружаемый файл"); }
-
         }
     }
 }
