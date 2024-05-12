@@ -27,7 +27,7 @@ jobs:
         dotnet-version: 8.0.x
 
     - name: Run test
-      run: dotnet test
+      run: dotnet test GraduateWork.csproj
 
     - name: Load test report history
       uses: actions/checkout@v3
