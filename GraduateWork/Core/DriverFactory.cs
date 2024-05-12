@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks; 
 using WebDriverManager.DriverConfigs.Impl;
-using WebDriverManager; 
+using WebDriverManager;  
 
 namespace GraduateWork.Core
 {
