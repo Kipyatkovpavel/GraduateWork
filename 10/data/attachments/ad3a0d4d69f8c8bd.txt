@@ -1,0 +1,6 @@
+2024/05/12 20:41:58.870|DEBUG|Get, request to: /api/v1/projects/{project_id} 
+2024/05/12 20:41:58.916|ERROR|Error retrieving response. Check inner details for more info. 
+Request failed with status code NotFound 
+2024/05/12 20:41:58.916|DEBUG|Request finished with status code: NotFound 
+2024/05/12 20:41:58.916|DEBUG|{"message":"The project does not exist or you do not have the permissions to access it.","code":0} 
+2024/05/12 20:41:58.916|INFO|The project does not exist or you do not have the permissions to access it. 
