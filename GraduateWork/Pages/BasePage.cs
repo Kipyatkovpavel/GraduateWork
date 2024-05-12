@@ -25,14 +25,13 @@ namespace GraduateWork.Pages
 
         protected IWebDriver Driver { get; private set; }
         protected WaitsHelper WaitsHelper { get; private set; }
-
         protected abstract string GetEndPoint();
         public abstract bool IsPageOpened();
 
         [AllureStep("Открыта страница")]
         protected void OpenPageByURL()
         {
-            Driver.Navigate().GoToUrl(Configurator.AppSettings.URL + GetEndPoint());
+            Driver.Navigate().GoToUrl(Configurator.AppSettingsUI.URL + GetEndPoint());
         }
 
         public BasePage(IWebDriver driver)

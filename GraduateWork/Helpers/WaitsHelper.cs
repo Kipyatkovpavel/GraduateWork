@@ -1,4 +1,5 @@
-﻿using Microsoft.Playwright;
+﻿using GraduateWork.Elements;
+using Microsoft.Playwright;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
@@ -38,9 +39,14 @@ namespace GraduateWork.Helpers
             return _wait.Until(ExpectedConditions.ElementExists(locator));
         }
 
+        public UIElement WaitChildElement(IWebElement webElement, By by)
+        {
+            return new UIElement(driver, _wait.Until(_ => webElement.FindElement(by)));
+        }
         //Невидимый элемент
         public bool WaitForElementInvisible(By locator)
         {
+            //return _wait.Until(ExpectedConditions.InvisibilityOfElementLocated(locator));
             return _wait.Until(ExpectedConditions.InvisibilityOfElementLocated(locator));
         }
 
@@ -85,5 +91,20 @@ namespace GraduateWork.Helpers
             // Использование
             return fluentWait.Until(_ => driver.FindElement(locator));
         }
+
+        public bool CheckElementExists(By locator)
+        {
+            try
+            {
+                // Попытка найти элемент
+                return _wait.Until(driver => driver.FindElements(locator).Any());
+            }
+            catch (NoSuchElementException)
+            {
+                // Если элемент не найден, возвращаем false
+                return false;
+            }
+        }
+    
     }
 }

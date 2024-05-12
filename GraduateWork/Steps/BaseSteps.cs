@@ -4,16 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GraduateWork.Pages;
+
 
 namespace GraduateWork.Steps
 {
-    public class BaseSteps
+    public class BaseSteps(IWebDriver driver)
     {
-        protected IWebDriver Driver;
+        protected readonly IWebDriver Driver = driver;
+        protected LoginPage? LoginPage { get; set; }
+        protected ProjectPage? ProjectPage { get; set; }
+        protected AdminPage? AdminPage { get; set; }
 
-        public BaseSteps(IWebDriver driver)
-        {
-            Driver = driver;
-        }
+
     }
 }

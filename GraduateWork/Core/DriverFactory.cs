@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading.Tasks; 
 using WebDriverManager.DriverConfigs.Impl;
-using WebDriverManager;
+using WebDriverManager;  
 
 namespace GraduateWork.Core
 {
@@ -19,7 +19,8 @@ namespace GraduateWork.Core
             chromeOptions.AddArguments("--incognito");
             chromeOptions.AddArguments("--disable-gpu");
             chromeOptions.AddArguments("--disable-extensions");
-            //chromeOptions.AddArguments("--headless");
+            chromeOptions.AddArguments("--headless");
+            chromeOptions.AddArguments("--remote-debugging-pipe");
 
             chromeOptions.SetLoggingPreference(LogType.Browser, LogLevel.All);
             chromeOptions.SetLoggingPreference(LogType.Driver, LogLevel.All);
