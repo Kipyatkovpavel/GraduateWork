@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Allure.Net.Commons;
 using Allure.NUnit.Attributes;
 using GraduateWork.Elements;
 using GraduateWork.Helpers.Configuration;
@@ -16,11 +17,12 @@ using OpenQA.Selenium;
 
 namespace GraduateWork.Tests
 {
-    [AllureEpic("Web Interface")]
-    [AllureFeature("UploadFile Project")]
     public class UploadFileTes : BaseTest
     {
         [Test]
+        [Description("Проверка создания проекта с загрузкой своего файла, а так же проверка на созданном проекте")]
+        [AllureSeverity(SeverityLevel.critical)]
+        [AllureFeature("Positive")]
         public void UploadFileCorrectTest()
         {
             ProjectPage projectPage = _navigationSteps.SuccessAuthorization(Admin);//Авторизация

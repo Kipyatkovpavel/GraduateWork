@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Allure.Net.Commons;
 using Allure.NUnit.Attributes;
 using GraduateWork.Elements;
 using GraduateWork.Helpers.Configuration;
@@ -19,6 +20,9 @@ namespace GraduateWork.Tests
     public class FailedTest : BaseTest
     {
         [Test]
+        [Description("Проверка на загрузку некорректного файла при создании проекта")]
+        [AllureSeverity(SeverityLevel.critical)]
+        [AllureFeature("Negative")]
         public void FailedCreateTest()
         {
             ProjectPage projectPage = _navigationSteps.SuccessAuthorization(Admin);//Авторизация

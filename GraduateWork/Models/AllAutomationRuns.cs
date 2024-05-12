@@ -1,4 +1,5 @@
-﻿using GraduateWork.Models;
+﻿using Allure.NUnit.Attributes;
+using GraduateWork.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GraduateWork.Models
 {
-    public record AllAutomationRuns
+     public record AllAutomationRuns
     {
         [JsonPropertyName("page")] public int Page { get; set; }
         [JsonPropertyName("prev_page")] public int? PrevPage { get; set; }

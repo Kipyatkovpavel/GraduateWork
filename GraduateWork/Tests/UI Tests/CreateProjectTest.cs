@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Allure.Net.Commons;
 using Allure.NUnit.Attributes;
 using GraduateWork.Elements;
 using GraduateWork.Helpers.Configuration;
@@ -14,14 +15,16 @@ using OpenQA.Selenium;
 
 namespace GraduateWork.Tests
 {
-    [AllureEpic("Web Interface")]
-    [AllureFeature("Create Project")]
+
     public class CreateProjectTest : BaseTest
     {
         [Test]
-
+        [Description("Тест на создание Проекта")]
+        [AllureSeverity(SeverityLevel.critical)]
+        [AllureFeature("Positive")]
         public void AddProjectCorrectTest()
         {
+
             ProjectPage projectPage = _navigationSteps.SuccessAuthorization(Admin);//Авторизация
             projectPage.ClickAddProjectButton();
 
@@ -33,8 +36,6 @@ namespace GraduateWork.Tests
                    Assert.That(FirstProject.ProjectSummary.Equals(createProject.SummaryOfCreateProject.Text));
 
                });
-
-
         }
     }
 }

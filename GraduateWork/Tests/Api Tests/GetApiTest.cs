@@ -1,4 +1,5 @@
-﻿using GraduateWork.Helpers.Configuration;
+﻿using Allure.NUnit.Attributes;
+using GraduateWork.Helpers.Configuration;
 using GraduateWork.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -22,11 +23,13 @@ namespace GraduateWork.Tests.Api_Tests
         private readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
         [Test]
+        [Description("Тест получения пользоваетля")]
+        [Category("Get")]
+        [AllureFeature("NFE")]
         [Order(1)]
         public void GetUserApiTest()
         {
             var result = ProjectService!.GetUser();
-
 
             _logger.Info(result.Result);
             Assert.Multiple(() =>
@@ -38,6 +41,9 @@ namespace GraduateWork.Tests.Api_Tests
         }
 
         [Test]
+        [Description("Тест получения всех проектов")]
+        [Category("Get")]
+        [AllureFeature("NFE")]
         [Order(2)]
         public void GetAllProjectsApiTest()
         {
@@ -53,6 +59,9 @@ namespace GraduateWork.Tests.Api_Tests
             });
         }
         [Test]
+        [Description("Тест получения проектов по id")]
+        [Category("Get")]
+        [AllureFeature("NFE")]
         [Order(3)]
         public void GetCorrectProjectByIdApiTest()
         {
@@ -68,6 +77,9 @@ namespace GraduateWork.Tests.Api_Tests
         }
 
         [Test]
+        [Description("Тест получения проектов по несуществующему id")]
+        [Category("Get")]
+        [AllureFeature("AFE")]
         [Order(4)]
         public void GetIncorrectProjectByIdApiTest()
         {
@@ -81,6 +93,9 @@ namespace GraduateWork.Tests.Api_Tests
         }
 
         [Test]
+        [Description("Тест получения Milestones по id")]
+        [Category("Get")]
+        [AllureFeature("NFE")]
         [Order(5)]
         public void GetCorrectMilestonesApiTest()
         {
@@ -95,6 +110,9 @@ namespace GraduateWork.Tests.Api_Tests
         }
 
         [Test]
+        [Description("Тест получения Milestones по несуществующему id")]
+        [Category("Get")]
+        [AllureFeature("AFE")]
         [Order(6)]
         public void GetInCorrectMilestonesApiTest()
         {

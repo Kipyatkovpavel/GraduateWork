@@ -1,4 +1,5 @@
-﻿using GraduateWork.Helpers.Configuration;
+﻿using Allure.NUnit.Attributes;
+using GraduateWork.Helpers.Configuration;
 using GraduateWork.Models;
 using GraduateWork.Services;
 using Newtonsoft.Json;
@@ -22,7 +23,10 @@ namespace GraduateWork.Tests.Api_Tests
         private readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
         [Test]
-        [Order(1)]
+        [Description("Тест добавления автоматического запуска по id проекта")]
+        [Category("Post")]
+        [AllureFeature("NFE")]
+        [Order(7)]
         public void PostAutomationRunsApiTest()
         {
             AutomationRunRequest requestBody = new AutomationRunRequest()
@@ -31,7 +35,7 @@ namespace GraduateWork.Tests.Api_Tests
                 Source = "frontend",
             };
             _logger.Info(requestBody.ToString());
-            var response = AutomationRunsService!.PostAutomationRuns(1, requestBody);
+            var response = AutomationRunsService!.PostAutomationRuns("1", requestBody);
             Thread.Sleep(3000);
             var AllAutomationRuns = AutomationRunsService.GetAllAutomationRunsID("1");
 

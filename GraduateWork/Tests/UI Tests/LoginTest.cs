@@ -16,25 +16,26 @@ using GraduateWork.Models;
 
 namespace GraduateWork.Tests
 {
-    [AllureEpic("Web Interface")]
-    [AllureFeature("Login feature")]
+
     public class LoginTest : BaseTest
     {
-        [Test(Description = "Проверка ввода правильного Логина/Пароля")]
+        [Test]
+        [Description("Проверка авторизации ")]
         [AllureSeverity(SeverityLevel.critical)]
-        [AllureStory("Story1")]
+        [AllureFeature("Positive")]
         public void SuccesfullLoginTest()
         {
 
-           // NavigationSteps navigationSteps = new NavigationSteps(Driver);
+
             LoginPage loginPage = _navigationSteps.SuccessFulLogin(Admin);
             Assert.That(loginPage.IsPageOpened);
 
         }
 
-        [Test(Description = "Проверка неправильного Логина и сравнение с ошибкой")]
+        [Test]
+        [Description("Проверка некорректной авторизации,указание неправильного логина и проверка ошибки)")]
         [AllureSeverity(SeverityLevel.critical)]
-        [AllureStory("Story2")]
+        [AllureFeature("Negative")]
         public void InvalidUserNameLoginTest()
         {
             //Проверка

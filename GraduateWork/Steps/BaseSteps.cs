@@ -12,7 +12,6 @@ namespace GraduateWork.Steps
     public class BaseSteps(IWebDriver driver)
     {
         protected readonly IWebDriver Driver = driver;
-
         protected LoginPage? LoginPage { get; set; }
         protected ProjectPage? ProjectPage { get; set; }
         protected AdminPage? AdminPage { get; set; }

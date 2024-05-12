@@ -1,4 +1,5 @@
-﻿using GraduateWork.Elements;
+﻿using Allure.NUnit.Attributes;
+using GraduateWork.Elements;
 using GraduateWork.Helpers;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
@@ -43,12 +44,12 @@ namespace GraduateWork.Pages
         {
 
         }
-
+        [AllureStep("Checking Get EndPoint")]
         protected override string GetEndPoint()
         {
             return END_POINT;
         }
-
+        [AllureStep("Checking that page opened")]
         public override bool IsPageOpened()
         {
             try
@@ -77,57 +78,46 @@ namespace GraduateWork.Pages
         public IWebElement NameOfCreateProject => WaitsHelper.WaitForExists(NameOfCreateProjectBy);
         public IWebElement SummaryOfCreateProject => WaitsHelper.WaitForExists(SummaryOfCreateProjectBy);
         public DropDownMenu ProjectDefaultAccessInput => new(Driver, ProjectDefaultAccessInputBy);
-
-
         public UIElement ProjectIcon => new(Driver, ProjectIconBy);
         public Button SelectFileButton => new(Driver, SelectFileButtonBy);
-
-
         public UIElement FileInput => new(Driver, FileInputBy);
         public UIElement ContributorsIcon => new(Driver, ContributorsIconBy);
 
+        public UIElement NumberOfCharacters => new(Driver, NumberOfCharactersBy);
+
+        [AllureStep("Click Add Project Button")]
+        public void ClickAddProjectButton() => AddProjectButton.Click();
+        [AllureStep("Click Admin Button")]
+        public void ClickAdminButton() => AdminButton.Click();
+        [AllureStep("Click Project Button")]
+        public void ClickProjectButton() => ProjectButton.Click();
+        [AllureStep("Click DropDown Default Access")]
+        public void ClickDropDownDefaultAccess() => DropDownDefaultAccess.Click(); //Можно было бы вынести это всё в базовый класс, из ProjectPage и AdminPage...Но времени нет(
+        [AllureStep("Click Create Project Button")]
+        public void ClickCreateProjectButton() => CreateProjectButton.Click();
+        [AllureStep("Click Select File Button")]
+        public void ClickSelectFileButton() => SelectFileButton.Click();
+        [AllureStep("Check that Error of Upload file is Displayed")]
         public bool ErrorSelectedFileDisplayed()
         {
             return UIElement.IsElementPresent(Driver, ErrorSelectedFileBy);
         }
-
-        public UIElement NumberOfCharacters => new(Driver, NumberOfCharactersBy);
-
-        public void ClickAddProjectButton() => AddProjectButton.Click();
-        public void ClickAdminButton() => AdminButton.Click();
-        public void ClickProjectButton() => ProjectButton.Click();
-        public void ClickDropDownDefaultAccess() => DropDownDefaultAccess.Click();
-        public void ClickCreateProjectButton() => CreateProjectButton.Click();
-
-        public void ClickSelectFileButton() => SelectFileButton.Click();
-
+        [AllureStep("Check that Project Icon Displayed")]
         public bool CheckThatProjectIconDisplayed()
         {
             return ProjectIcon.Displayed;
         }
+        [AllureStep("Check that Dialog Window Displayed")]
         public bool DialogWindowDisplayed()
         {
             return ProjectDialogWindow.Displayed;
         }
+        [AllureStep("Check that Contributors Icon Displayed")]
         public bool ContributorsIconDisplayed()
         {
             return ContributorsIcon.Displayed;
         }
-        public bool NameWindowDisplayed()
-        {
-            return ProjectNameInput.Displayed;
-        }
-
-        public bool SummaryWindowDisplayed()
-        {
-            return ProjectSummaryInput.Displayed;
-        }
-
-        public bool DefaultAccessWindowDisplayed()
-        {
-            return ProjectDialogWindow.Displayed;
-        }
-
+        [AllureStep("Clear Field Summary")]
         public void ClearSummaryField()
         {
             ProjectSummaryInput.Clear();

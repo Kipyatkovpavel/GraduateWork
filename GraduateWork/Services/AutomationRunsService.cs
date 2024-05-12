@@ -9,6 +9,7 @@ using GraduateWork.Clients;
 using GraduateWork.Models;
 using GraduateWork.Helpers.Configuration;
 using System.Reflection.Metadata;
+using Allure.NUnit.Attributes;
 
 namespace GraduateWork.Services
 {
@@ -21,8 +22,8 @@ namespace GraduateWork.Services
             _client = client;
         }
 
-
-        public Task<AutomationRunResponse> PostAutomationRuns(int projectId, AutomationRunRequest requestBody)
+        [AllureStep("Create Automation Runs on definite project")]
+        public Task<AutomationRunResponse> PostAutomationRuns(string projectId, AutomationRunRequest requestBody)
         {
             var request = new RestRequest("/api/v1/projects/{project_id}/automation/runs", Method.Post)
                 .AddUrlSegment("project_id", projectId)
@@ -30,7 +31,7 @@ namespace GraduateWork.Services
 
             return _client.ExecuteAsync<AutomationRunResponse>(request);
         }
-
+        [AllureStep("Get All AutomationRuns on definite project")]
         public Task<AllAutomationRuns> GetAllAutomationRunsID(string projectId)
         {
             var request = new RestRequest("/api/v1/projects/{project_id}/automation/runs")
@@ -38,7 +39,6 @@ namespace GraduateWork.Services
 
             return _client.ExecuteAsync<AllAutomationRuns>(request);
         }
-
         public void Dispose()
         {
             _client?.Dispose();

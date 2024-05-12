@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using GraduateWork.Elements;
+using Allure.NUnit.Attributes;
 
 namespace GraduateWork.Pages
 {
@@ -33,29 +34,23 @@ namespace GraduateWork.Pages
 
         }
 
-
         //Атомарные методы
         public IWebElement EmailInput => WaitsHelper.WaitForExists(EmailInputBy);
         public IWebElement ErrorLabel => WaitsHelper.WaitForExists(ErrorLabelBy);
         public IWebElement PswInput => WaitsHelper.WaitForExists(PswInputBy);
         public Button LoginInButton => new(Driver, LoginInButtonBy);
         public IWebElement PageTitle => WaitsHelper.WaitForExists(pageTitle);
-
-/*        public UIElement IconProfile => new(Driver, IconProfileBy);
-        public UIElement PopUpProfileNameOfIconProfile => new(Driver, PopUpProfileNameOfIconProfileBy);
-        public UIElement PopUpInformationOfIconProfile => new(Driver, PopUpInformationOfIconProfileBy);*/
-
         public IWebElement IconProfile => WaitsHelper.WaitForExists(IconProfileBy);
         public IWebElement PopUpProfileNameOfIconProfile => WaitsHelper.WaitForExists(PopUpProfileNameOfIconProfileBy);
         public IWebElement PopUpInformationOfIconProfile => WaitsHelper.WaitForExists(PopUpInformationOfIconProfileBy);
 
-
         //Complex Методы
-
+        [AllureStep("Get EndPoint")]
         protected override string GetEndPoint()
         {
             return END_POINT;
         }
+        [AllureStep("Checking that page opened")]
         public override bool IsPageOpened()
         {
             try

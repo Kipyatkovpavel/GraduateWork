@@ -25,7 +25,6 @@ namespace GraduateWork.Pages
 
         protected IWebDriver Driver { get; private set; }
         protected WaitsHelper WaitsHelper { get; private set; }
-
         protected abstract string GetEndPoint();
         public abstract bool IsPageOpened();
 

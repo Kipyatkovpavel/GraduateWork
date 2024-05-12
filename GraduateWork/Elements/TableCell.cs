@@ -16,7 +16,6 @@ namespace GraduateWork.Elements
             _uiElement = uiElement;
         }
 
-        //public UIElement DeleteAction() => _uiElement.FindUIElement(By.TagName("div"));
         public UIElement DeleteAction() => _uiElement.FindUIElement(By.XPath("//div[@data-action='delete']"));
         public string Text => _uiElement.Text;
         public bool Displayed() => _uiElement.Displayed;

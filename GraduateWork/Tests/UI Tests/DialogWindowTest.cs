@@ -14,13 +14,12 @@ using Allure.Net.Commons;
 
 namespace GraduateWork.Tests
 {
-    [AllureEpic("Web Interface")]
-    [AllureFeature("Dialog Window Test")]
     public class DialogWindowTest : BaseTest
     {
-        [Test(Description = "Проверка на отображения диалогового окна (окна создания проекта)")]
+        [Test]
+        [Description("Проверка на отображения диалогового окна (окна создания проекта)")]
         [AllureSeverity(SeverityLevel.critical)]
-        [AllureStory("Story2")]
+        [AllureFeature("Positive")]
         public void SuccesfullLoginAndAddProjectTest()
         {
 

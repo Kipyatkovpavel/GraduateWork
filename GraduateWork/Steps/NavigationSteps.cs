@@ -1,4 +1,5 @@
-﻿using GraduateWork.Elements;
+﻿using Allure.NUnit.Attributes;
+using GraduateWork.Elements;
 using GraduateWork.Models;
 using GraduateWork.Pages;
 using GraduateWork.Steps;
@@ -16,48 +17,40 @@ namespace GraduateWork.Steps
         public NavigationSteps(IWebDriver driver) : base(driver)
         {
         }
-
+        [AllureStep]
         public LoginPage SuccessFulLogin(User user)
         {
             return Login<LoginPage>(user);
 
         }
-
+        [AllureStep("Incorrect Login")]
         public LoginPage IncorrectLogin(User user)
         {
             return Login<LoginPage>(user);
         }
-
+        [AllureStep("Success Authorization")]
         public ProjectPage SuccessAuthorization(User user)
         {
             return Login<ProjectPage>(user);
         }
-
+        [AllureStep("Success Create Project")]
         public ProjectPage SuccessCreateProject(Project project)
         {
             return CreateProject<ProjectPage>(project);
         }
-
+        [AllureStep("Success Delete Project")]
         public AdminPage SuccessDeleteProject(Project project)
         {
             return DeleteProject<AdminPage>(project);
         }
 
+        [AllureStep("Create Project but not click Add Project")]
         public ProjectPage SuccessCreateProjectNotEnd(Project project)
         {
             return CreateProjectNotEnd<ProjectPage>(project);
         }
 
-/*        public ProjectPage AddingValueBoundaryCheckProject(Project project)
-        {
-            return AddValueSummaryAtBoundaryProject<ProjectPage>(project);
-        }
-
-        public ProjectPage ClearSummaryAtBoundaryProjectCheckProject(Project project)
-        {
-            return ClearSummaryAtBoundaryProject<ProjectPage>(project);
-        }
-*/
+        [AllureStep("Create Project")]
         public T CreateProject<T>(Project project) where T : BasePage
         {
             ProjectPage = new ProjectPage(Driver);
@@ -69,7 +62,7 @@ namespace GraduateWork.Steps
 
             return (T)Activator.CreateInstance(typeof(T), Driver, false);
         }
-
+        [AllureStep("Delete Project")]
         public T DeleteProject<T>(Project project) where T : BasePage
         {
             AdminPage adminPage = new AdminPage(Driver);
@@ -82,7 +75,7 @@ namespace GraduateWork.Steps
 
             return (T)Activator.CreateInstance(typeof(T), Driver, false);
         }
-
+        [AllureStep("Delete Excess Project")]
         public AdminPage DeleteExcessProject (string Delete) 
         {
             AdminPage adminPage = new AdminPage(Driver);
@@ -95,9 +88,7 @@ namespace GraduateWork.Steps
 
             return AdminPage;
         }
-
-
-
+        [AllureStep("Authorization")]
         public T Login<T>(User user) where T : BasePage
         {
             LoginPage = new LoginPage(Driver);
@@ -107,7 +98,7 @@ namespace GraduateWork.Steps
 
             return (T)Activator.CreateInstance(typeof(T), Driver, false);
         }
-
+        [AllureStep("Create Project but not click Add Project")]
         public T CreateProjectNotEnd<T>(Project project) where T : BasePage
         {
             ProjectPage = new ProjectPage(Driver);
@@ -118,18 +109,13 @@ namespace GraduateWork.Steps
 
             return (T)Activator.CreateInstance(typeof(T), Driver, false);
         }
-
+        [AllureStep("Input Summary Field")]
         public ProjectPage InputSummaryField(string count)
         {
             ProjectPage = new ProjectPage(Driver);
             ProjectPage.ProjectSummaryInput.SendKeys(count);
             return ProjectPage;
         }
-        public ProjectPage ClearSummaryField()
-        {
-            ProjectPage = new ProjectPage(Driver);
-            ProjectPage.ProjectSummaryInput.Clear();
-            return ProjectPage;
-        }
+
     }
 }

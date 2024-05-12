@@ -39,17 +39,7 @@ public class UIElement : IWebElement
     {
         get
         {
-            /*                if (_webElement.Text.Equals(""))
-                                {
-                                    if (GetAttribute("value").Equals(""))
-                                    {
-                                        return GetAttribute("innerText");
-                                    }
-                                    else
-                                    {
-                                        return GetAttribute("value");
-                                    }
-                                }*/
+
             return _webElement.Text;
         }
     }

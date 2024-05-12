@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Allure.Net.Commons;
 using Allure.NUnit.Attributes;
 using GraduateWork.Elements;
 using GraduateWork.Helpers.Configuration;
@@ -15,11 +16,13 @@ using OpenQA.Selenium.Interactions;
 
 namespace GraduateWork.Tests
 {
-    [AllureEpic("Web Interface")]
-    [AllureFeature("Delete Project")]
+
     public class PopUpMessTest : BaseTest
     {
         [Test]
+        [Description("Проверка всплывающего окна при наведении курсором")]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureFeature("Positive")]
         public void PopUpMessCorrectTest()
         {
             LoginPage loginPage = _navigationSteps.SuccessFulLogin(Admin); ;//Авторизация

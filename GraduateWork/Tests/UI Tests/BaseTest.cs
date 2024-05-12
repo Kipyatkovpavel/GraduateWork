@@ -14,11 +14,13 @@ using System.Reflection;
 using OpenQA.Selenium.Interactions;
 using Allure.Net.Commons;
 using Allure.NUnit;
+using Allure.NUnit.Attributes;
 
 namespace GraduateWork.Tests
 {
     [Parallelizable(scope: ParallelScope.All)]
     [FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
+    [AllureSuite("GUI Tests")]
     [AllureNUnit]
     public class BaseTest
     {
@@ -88,7 +90,7 @@ namespace GraduateWork.Tests
 
 
 
-        BoundaryValues0Сharacters = "";
+            BoundaryValues0Сharacters = "";
 
             BoundaryValues1Сharacters = new string(Enumerable.Repeat("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", 1)
                     .Select(s => s[random.Next(s.Length)]).ToArray());
@@ -118,6 +120,21 @@ namespace GraduateWork.Tests
         [TearDown]
         public void TearDown()
         {
+            try
+            {
+                if (TestContext.CurrentContext.Result.Outcome.Status == NUnit.Framework.Interfaces.TestStatus.Failed)
+                {
+                    Screenshot screenshot = ((ITakesScreenshot)Driver).GetScreenshot();
+                    byte[] screenshoteBytes = screenshot.AsByteArray;
+
+                    AllureApi.AddAttachment("Screenshot", "image/png", screenshoteBytes);
+                }
+            }
+            catch
+            {
+                //ignore
+            }
+
             Driver.Quit();
         }
     }

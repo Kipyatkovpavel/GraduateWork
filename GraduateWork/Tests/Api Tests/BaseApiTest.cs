@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Allure.NUnit.Attributes;
+using Allure.NUnit;
 using GraduateWork.Clients;
 using GraduateWork.Models;
 using GraduateWork.Services;
+using Allure.Net.Commons;
 
 namespace GraduateWork.Tests
 {
+    [Parallelizable(scope: ParallelScope.All)]
+    [AllureSuite("API Tests")]
+    [AllureNUnit]
     public class BaseApiTest
     {
         protected ProjectService? ProjectService;
@@ -32,6 +38,8 @@ namespace GraduateWork.Tests
             TestNameMilestones = "TestNameMilestones";
 
             TestSummaryMilestones = "TestSummaryMilestones";
+
+            AllureLifecycle.Instance.CleanupResultDirectory();
         }
 
         [OneTimeTearDown]

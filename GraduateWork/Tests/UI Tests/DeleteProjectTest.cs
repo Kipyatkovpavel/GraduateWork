@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Allure.Net.Commons;
 using Allure.NUnit.Attributes;
 using GraduateWork.Elements;
 using GraduateWork.Helpers.Configuration;
@@ -19,6 +20,9 @@ namespace GraduateWork.Tests
     public class DeleteProjectTest : BaseTest
     {
         [Test]
+        [Description("Тест на удаление создание и удаление созданого Проекта")]
+        [AllureSeverity(SeverityLevel.critical)]
+        [AllureFeature("Positive")]
         public void DeleteProjectCorrectTest()
         {
             ProjectPage projectPage = _navigationSteps.SuccessAuthorization(Admin);//Авторизация
@@ -36,7 +40,9 @@ namespace GraduateWork.Tests
         }
 
         [Test]
-        [Repeat(3)]
+        [Description("Тест на удаление Проекта(дополнительный тест, позволяющий почистить проекты)")]
+        [AllureSeverity(SeverityLevel.trivial)]
+        [AllureFeature("Positive")]
         public void DeleteExcessCorrectTest()//Тест для удаления мешающих проектов( Для запуска апи тестов требуется прогнать все UI тесты)
         {
 

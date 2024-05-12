@@ -45,12 +45,12 @@ namespace GraduateWork.Pages
         {
 
         }
-
+        [AllureStep("Get EndPoint")]
         protected override string GetEndPoint()
         {
             return END_POINT;
         }
-
+        [AllureStep("Checking that page opened")]
         public override bool IsPageOpened()
         {
             try
@@ -64,7 +64,6 @@ namespace GraduateWork.Pages
         }
 
         // Атомарные Методы
-
         public UIElement ProjectDialogWindow => new(Driver, ProjectDialogWindowBy);  //всплывающее окно
         public UIElement EmailInput => new(Driver, EmailInputBy);
         public UIElement PswInput => new(Driver, PswInputBy);
@@ -73,13 +72,10 @@ namespace GraduateWork.Pages
         public Button AddProjectButton => new(Driver, AddProjectButtonBy);
         public Button AdminButton => new(Driver, AdminButtonBy);
         public Button ProjectButton => new(Driver, ProjectButtonBy);
-
         public Button CreateProjectButton => new(Driver, CreateProjectButtonBy);
-
         public Button DropDownDefaultAccess => new(Driver, DropDownDefaultAccessBy);
 
         public CheckBox CheckboxDelete => new CheckBox(Driver, CheckboxDeleteBy);
-
         public Button DeleteProjectButton => new Button(Driver, DeleteProjectButtonBy);
         public UIElement ProjectNameInput => new(Driver, ProjectNameInputBy);
         public UIElement ProjectSummaryInput => new(Driver, ProjectSummaryInputBy);
@@ -92,46 +88,20 @@ namespace GraduateWork.Pages
         public DropDownMenu ProjectDefaultAccessInput => new(Driver, ProjectDefaultAccessInputBy);
 
         public Table ProjectTable => new(Driver, ProjectTableBy);
-
+        [AllureStep("Click Add Project Button")]
         public void ClickAddProjectButton() => AddProjectButton.Click();
-
+        [AllureStep("Click Add Admin Button")]
         public void ClickAdminButton() => AdminButton.Click();
+        [AllureStep("Click Checkbox Delete")]
         public void CheckboxDeleteClick() => CheckboxDelete.Click();
+        [AllureStep("Click Delete Project Button")]
         public void DeleteProjectButtonClick() => DeleteProjectButton.Click();
-
-        public void ClickProjectButton() => ProjectButton.Click();
-
-
-
+        [AllureStep("Click Project Button")]
+        public void ClickProjectButton() => ProjectButton.Click(); //Можно было бы вынести это всё в базовый класс, из ProjectPage и AdminPage...Но времени нет(
+        [AllureStep("Click DropDown DefaultAccess Button")]
         public void ClickDropDownDefaultAccess() => DropDownDefaultAccess.Click();
+        [AllureStep("Click Create Project Button")]
         public void ClickCreateProjectButton() => CreateProjectButton.Click();
-
-        public bool NameProjectDisplayed()
-        {
-            return ProjectDialogWindow.Displayed;
-        }
-
-
-        public bool DialogWindowDisplayed()
-        {
-            return ProjectDialogWindow.Displayed;
-        }
-
-        public bool NameWindowDisplayed()
-        {
-            return ProjectNameInput.Displayed;
-        }
-
-        public bool SummaryWindowDisplayed()
-        {
-            return ProjectSummaryInput.Displayed;
-        }
-
-        public bool DefaultAccessWindowDisplayed()
-        {
-            return ProjectDialogWindow.Displayed;
-        }
-
 
     }
 }
