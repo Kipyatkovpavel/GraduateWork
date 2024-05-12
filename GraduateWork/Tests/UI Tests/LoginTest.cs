@@ -25,11 +25,8 @@ namespace GraduateWork.Tests
         [AllureFeature("Positive")]
         public void SuccesfullLoginTest()
         {
-
-
             LoginPage loginPage = _navigationSteps.SuccessFulLogin(Admin);
             Assert.That(loginPage.IsPageOpened);
-
         }
 
         [Test]
