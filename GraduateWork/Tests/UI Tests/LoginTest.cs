@@ -16,8 +16,7 @@ using GraduateWork.Models;
 
 namespace GraduateWork.Tests
 {
-
-    public class LoginTest : BaseTest
+        public class LoginTest : BaseTest
     {
         [Test]
         [Description("Проверка авторизации ")]
