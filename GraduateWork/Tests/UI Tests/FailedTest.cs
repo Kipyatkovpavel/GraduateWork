@@ -11,9 +11,9 @@ using GraduateWork.Models;
 using GraduateWork.Pages;
 using GraduateWork.Steps;
 using GraduateWork.Tests;
-using OpenQA.Selenium; 
+using OpenQA.Selenium;
 
-/*namespace GraduateWork.Tests
+namespace GraduateWork.Tests
 {
     public class FailedTest : BaseTest
     {
@@ -45,4 +45,4 @@ using OpenQA.Selenium;
             else { Assert.Fail("Проверьте загружаемый файл"); }
         }
     }
-}*/
+}

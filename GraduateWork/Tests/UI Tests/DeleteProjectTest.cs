@@ -43,10 +43,9 @@ namespace GraduateWork.Tests
         [AllureFeature("Positive")]
         public void DeleteExcessCorrectTest()//Тест для удаления мешающих проектов( Для запуска апи тестов требуется прогнать все UI тесты)
         {
-
             ProjectPage projectPage = _navigationSteps.SuccessAuthorization(Admin);//Авторизация
             Thread.Sleep(10000);
-          //  AdminPage deleteProject = _navigationSteps.DeleteExcessProject(""); //Удаление проекта
+            AdminPage deleteProject = _navigationSteps.DeleteExcessProject(""); //Удаление проекта
         }
     }
 }
