@@ -15,8 +15,6 @@ using OpenQA.Selenium;
 
 namespace GraduateWork.Tests
 {
-    [AllureEpic("Web Interface")]
-    [AllureFeature("Create Project")]
     public class FailedTest : BaseTest
     {
         [Test]

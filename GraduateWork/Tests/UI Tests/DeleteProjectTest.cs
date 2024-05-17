@@ -15,8 +15,6 @@ using OpenQA.Selenium;
 
 namespace GraduateWork.Tests
 {
-    [AllureEpic("Web Interface")]
-    [AllureFeature("Delete Project")]
     public class DeleteProjectTest : BaseTest
     {
         [Test]
