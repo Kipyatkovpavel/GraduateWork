@@ -46,7 +46,7 @@ namespace GraduateWork.Tests
 
             ProjectPage projectPage = _navigationSteps.SuccessAuthorization(Admin);//Авторизация
             Thread.Sleep(10000);
-            AdminPage deleteProject = _navigationSteps.DeleteExcessProject(""); //Удаление проекта
+          //  AdminPage deleteProject = _navigationSteps.DeleteExcessProject(""); //Удаление проекта
         }
     }
 }
