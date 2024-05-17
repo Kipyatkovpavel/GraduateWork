@@ -1,0 +1,35 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Fri May 17 21:12:55 GMT 2024","Fri May 17 21:12:55 GMT 2024","45","","API Tests","","GetApiTest","GetCorrectMilestonesApiTest","GetCorrectMilestonesApiTest","Тест получения Milestones по id
+"
+"passed","Fri May 17 21:12:45 GMT 2024","Fri May 17 21:12:51 GMT 2024","5244","","GUI Tests","","BoundaryValuesTest","BoundaryValuesTestIncorrectTest","BoundaryValuesTestIncorrectTest","Тест на проверку поля Summary для ввода на некорректные граничные значения от (80+)
+"
+"passed","Fri May 17 21:12:51 GMT 2024","Fri May 17 21:12:57 GMT 2024","6121","","GUI Tests","","DeleteProjectTest","DeleteProjectCorrectTest","DeleteProjectCorrectTest","Тест на удаление создание и удаление созданого Проекта
+"
+"passed","Fri May 17 21:12:53 GMT 2024","Fri May 17 21:12:55 GMT 2024","2089","","GUI Tests","","PopUpMessTest","PopUpMessCorrectTest","PopUpMessCorrectTest","Проверка всплывающего окна при наведении курсором
+"
+"passed","Fri May 17 21:12:45 GMT 2024","Fri May 17 21:12:50 GMT 2024","5294","","GUI Tests","","CreateProjectTest","AddProjectCorrectTest","AddProjectCorrectTest","Тест на создание Проекта
+"
+"passed","Fri May 17 21:12:55 GMT 2024","Fri May 17 21:12:58 GMT 2024","3086","","API Tests","","PostApiTest","PostAutomationRunsApiTest","PostAutomationRunsApiTest","Тест добавления автоматического запуска по id проекта
+"
+"passed","Fri May 17 21:12:55 GMT 2024","Fri May 17 21:12:55 GMT 2024","172","","API Tests","","GetApiTest","GetUserApiTest","GetUserApiTest","Тест получения пользоваетля
+"
+"passed","Fri May 17 21:12:55 GMT 2024","Fri May 17 21:12:55 GMT 2024","31","","API Tests","","GetApiTest","GetIncorrectProjectByIdApiTest","GetIncorrectProjectByIdApiTest","Тест получения проектов по несуществующему id
+"
+"passed","Fri May 17 21:12:53 GMT 2024","Fri May 17 21:13:02 GMT 2024","8756","","GUI Tests","","UploadFileTes","UploadFileCorrectTest","UploadFileCorrectTest","Проверка создания проекта с загрузкой своего файла, а так же проверка на созданном проекте
+"
+"passed","Fri May 17 21:12:50 GMT 2024","Fri May 17 21:13:03 GMT 2024","13305","","GUI Tests","","DeleteProjectTest","DeleteExcessCorrectTest","DeleteExcessCorrectTest","Тест на удаление Проекта(дополнительный тест, позволяющий почистить проекты)
+"
+"failed","Fri May 17 21:12:45 GMT 2024","Fri May 17 21:12:50 GMT 2024","4315","","GUI Tests","","DialogWindowTest","SuccesfullLoginAndAddProjectTest","SuccesfullLoginAndAddProjectTest","Проверка на отображения диалогового окна (окна создания проекта)
+"
+"passed","Fri May 17 21:12:55 GMT 2024","Fri May 17 21:12:55 GMT 2024","50","","API Tests","","GetApiTest","GetCorrectProjectByIdApiTest","GetCorrectProjectByIdApiTest","Тест получения проектов по id
+"
+"passed","Fri May 17 21:12:45 GMT 2024","Fri May 17 21:12:51 GMT 2024","5849","","GUI Tests","","BoundaryValuesTest","BoundaryValuesTestCorrectTest","BoundaryValuesTestCorrectTest","Тест на проверку поля Summary для ввода на корректные граничные значения от (0-80)
+"
+"passed","Fri May 17 21:12:55 GMT 2024","Fri May 17 21:12:55 GMT 2024","31","","API Tests","","GetApiTest","GetInCorrectMilestonesApiTest","GetInCorrectMilestonesApiTest","Тест получения Milestones по несуществующему id
+"
+"passed","Fri May 17 21:12:55 GMT 2024","Fri May 17 21:12:55 GMT 2024","66","","API Tests","","GetApiTest","GetAllProjectsApiTest","GetAllProjectsApiTest","Тест получения всех проектов
+"
+"passed","Fri May 17 21:12:51 GMT 2024","Fri May 17 21:12:53 GMT 2024","2039","","GUI Tests","","LoginTest","SuccesfullLoginTest","SuccesfullLoginTest","Проверка авторизации 
+"
+"passed","Fri May 17 21:12:51 GMT 2024","Fri May 17 21:12:53 GMT 2024","2263","","GUI Tests","","LoginTest","InvalidUserNameLoginTest","InvalidUserNameLoginTest","Проверка некорректной авторизации,указание неправильного логина и проверка ошибки)
+"
