@@ -19,7 +19,6 @@ namespace GraduateWork.Pages
         protected static readonly By ErrorLabelBy = By.CssSelector(".message-block");//Ошибка при неверном вводе логина/пароля
         protected static readonly By pageTitle = By.ClassName("page-title__title");//вкладка Project
 
-
         //Элементы относящиеся к Созданию проекта
         private static readonly By AddProjectButtonBy = By.CssSelector("[data-target='home--index.addButton']");//Кнопка добавления проекта = +Project
 
