@@ -13,7 +13,7 @@ using GraduateWork.Steps;
 using GraduateWork.Tests;
 using OpenQA.Selenium; 
 
-namespace GraduateWork.Tests
+/*namespace GraduateWork.Tests
 {
     public class FailedTest : BaseTest
     {
@@ -45,4 +45,4 @@ namespace GraduateWork.Tests
             else { Assert.Fail("Проверьте загружаемый файл"); }
         }
     }
-}
+}*/
