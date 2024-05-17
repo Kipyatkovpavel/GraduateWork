@@ -1,0 +1,4 @@
+2024/05/17 20:51:25.307|DEBUG|Get, request to: /api/v1/user 
+2024/05/17 20:51:25.559|DEBUG|Request finished with status code: OK 
+2024/05/17 20:51:25.559|DEBUG|{"id":1,"name":"Kipyatkov Pavel","timezone":null,"date_format":null,"time_format":null} 
+2024/05/17 20:51:25.559|INFO|AuthResponse { Id = 1, Name = Kipyatkov Pavel, Timezone = , DateFormat = , TimeFormat =  } 

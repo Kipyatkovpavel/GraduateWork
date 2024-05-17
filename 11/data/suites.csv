@@ -1,0 +1,37 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Fri May 17 20:51:25 GMT 2024","Fri May 17 20:51:25 GMT 2024","257","","API Tests","","GetApiTest","GetUserApiTest","GetUserApiTest","Тест получения пользоваетля
+"
+"passed","Fri May 17 20:51:25 GMT 2024","Fri May 17 20:51:26 GMT 2024","946","","API Tests","","GetApiTest","GetAllProjectsApiTest","GetAllProjectsApiTest","Тест получения всех проектов
+"
+"passed","Fri May 17 20:51:19 GMT 2024","Fri May 17 20:51:21 GMT 2024","2747","","GUI Tests","","PopUpMessTest","PopUpMessCorrectTest","PopUpMessCorrectTest","Проверка всплывающего окна при наведении курсором
+"
+"passed","Fri May 17 20:51:03 GMT 2024","Fri May 17 20:51:15 GMT 2024","12027","","GUI Tests","","BoundaryValuesTest","BoundaryValuesTestIncorrectTest","BoundaryValuesTestIncorrectTest","Тест на проверку поля Summary для ввода на некорректные граничные значения от (80+)
+"
+"failed","Fri May 17 20:51:18 GMT 2024","Fri May 17 20:51:25 GMT 2024","6616","","GUI Tests","","FailedTest","FailedCreateTest","FailedCreateTest","Проверка на загрузку некорректного файла при создании проекта
+"
+"passed","Fri May 17 20:51:25 GMT 2024","Fri May 17 20:51:25 GMT 2024","74","","API Tests","","GetApiTest","GetInCorrectMilestonesApiTest","GetInCorrectMilestonesApiTest","Тест получения Milestones по несуществующему id
+"
+"passed","Fri May 17 20:51:25 GMT 2024","Fri May 17 20:51:25 GMT 2024","163","","API Tests","","GetApiTest","GetCorrectProjectByIdApiTest","GetCorrectProjectByIdApiTest","Тест получения проектов по id
+"
+"passed","Fri May 17 20:51:03 GMT 2024","Fri May 17 20:51:15 GMT 2024","11478","","GUI Tests","","DialogWindowTest","SuccesfullLoginAndAddProjectTest","SuccesfullLoginAndAddProjectTest","Проверка на отображения диалогового окна (окна создания проекта)
+"
+"passed","Fri May 17 20:51:03 GMT 2024","Fri May 17 20:51:16 GMT 2024","12645","","GUI Tests","","CreateProjectTest","AddProjectCorrectTest","AddProjectCorrectTest","Тест на создание Проекта
+"
+"passed","Fri May 17 20:51:15 GMT 2024","Fri May 17 20:51:22 GMT 2024","6310","","GUI Tests","","DeleteProjectTest","DeleteProjectCorrectTest","DeleteProjectCorrectTest","Тест на удаление создание и удаление созданого Проекта
+"
+"passed","Fri May 17 20:51:16 GMT 2024","Fri May 17 20:51:18 GMT 2024","2388","","GUI Tests","","LoginTest","InvalidUserNameLoginTest","InvalidUserNameLoginTest","Проверка некорректной авторизации,указание неправильного логина и проверка ошибки)
+"
+"passed","Fri May 17 20:51:22 GMT 2024","Fri May 17 20:51:25 GMT 2024","3196","","API Tests","","PostApiTest","PostAutomationRunsApiTest","PostAutomationRunsApiTest","Тест добавления автоматического запуска по id проекта
+"
+"passed","Fri May 17 20:51:16 GMT 2024","Fri May 17 20:51:19 GMT 2024","2616","","GUI Tests","","LoginTest","SuccesfullLoginTest","SuccesfullLoginTest","Проверка авторизации 
+"
+"passed","Fri May 17 20:51:25 GMT 2024","Fri May 17 20:51:25 GMT 2024","105","","API Tests","","GetApiTest","GetCorrectMilestonesApiTest","GetCorrectMilestonesApiTest","Тест получения Milestones по id
+"
+"passed","Fri May 17 20:51:03 GMT 2024","Fri May 17 20:51:16 GMT 2024","12532","","GUI Tests","","BoundaryValuesTest","BoundaryValuesTestCorrectTest","BoundaryValuesTestCorrectTest","Тест на проверку поля Summary для ввода на корректные граничные значения от (0-80)
+"
+"passed","Fri May 17 20:51:21 GMT 2024","Fri May 17 20:51:31 GMT 2024","9238","","GUI Tests","","UploadFileTes","UploadFileCorrectTest","UploadFileCorrectTest","Проверка создания проекта с загрузкой своего файла, а так же проверка на созданном проекте
+"
+"passed","Fri May 17 20:51:25 GMT 2024","Fri May 17 20:51:25 GMT 2024","84","","API Tests","","GetApiTest","GetIncorrectProjectByIdApiTest","GetIncorrectProjectByIdApiTest","Тест получения проектов по несуществующему id
+"
+"passed","Fri May 17 20:51:15 GMT 2024","Fri May 17 20:51:29 GMT 2024","14188","","GUI Tests","","DeleteProjectTest","DeleteExcessCorrectTest","DeleteExcessCorrectTest","Тест на удаление Проекта(дополнительный тест, позволяющий почистить проекты)
+"
